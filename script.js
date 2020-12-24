@@ -34,8 +34,13 @@ high = [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
 
 // Retrieve bet placement(s)
 
+// Get bet type for payout
+
 // Retrieve bet amount(s)
+
 // Verify player has total in bank.
+// Get balance.
+
 // Remove bet amount total from bank
 
 // Spin roulette wheel
@@ -43,6 +48,7 @@ ballPosition = Math.floor(Math.random() * wheel.length)
 // Get result from wheel
 console.log(wheel[ballPosition])
 if (red.includes(wheel[ballPosition])) {
+    balance += 10;
     console.log("red")
 } else if (black.includes(wheel[ballPosition])) {
     console.log("black")
@@ -53,3 +59,5 @@ if (red.includes(wheel[ballPosition])) {
 // Check bet placement(s)
 
 // Award wins, depending on selection group payout
+
+
