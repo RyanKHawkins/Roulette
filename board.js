@@ -9,10 +9,10 @@ export const wheel = [
 
 /**
  * Inside Bets
- * - Straight up (35 to 1 payout) - any single number, including 0
+ * - Straight up (35 to 1 payout) - any single number, including 0 and 00
  * - Split (17 to 1 payout) - any two adjoining numbers vertical or horizontal
- * - Basket (11 to 1 payout) - 
- * - Street (11 to 1 payout) - any three numbers horizontal (1, 2, 3, or 4, 5, 6 etc.)
+ * - Basket (11 to 1 payout) - 0, 00, 1, 2, 3
+ * - Street (11 to 1 payout) - any three numbers horizontal (1, 2, 3, or 4, 5, 6, etc.)
  * - Corner (8 to 1 payout) - any four adjoining numbers in a block (eg 17, 18, 20, 21)
  * - Six Line (5 to 1) - any six numbers from two rows (eg 28, 29, 30, 31, 32, 33)
  */
