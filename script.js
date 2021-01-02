@@ -1,4 +1,4 @@
-import * as board from "/board.js"
+import * as table from "/table.js"
 
 /*  Display:
     - last 5 spots landed - w/ colored background
@@ -32,13 +32,13 @@ let balance = 1000
 // Remove bet amount total from bank
 
 // Spin roulette wheel
-let ballPosition = Math.floor(Math.random() * board.wheel.length)
+let ballPosition = Math.floor(Math.random() * table.wheel.length)
 // Get result from wheel
-console.log(board.wheel[ballPosition])
-if (board.red.includes(board.wheel[ballPosition])) {
+console.log(table.wheel[ballPosition])
+if (table.red.includes(table.wheel[ballPosition])) {
     balance += 10;
     console.log("red")
-} else if (board.black.includes(board.wheel[ballPosition])) {
+} else if (table.black.includes(table.wheel[ballPosition])) {
     console.log("black")
 }
 
