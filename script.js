@@ -17,28 +17,35 @@ import * as table from "/table.js"
 */
 
 
+// Roulette game logic
+// Place bet
+// - Retrieve bet amount
+// - Retrieve location/type of bet
+
+// Confirm bank has enough for the net bets.
+// Remove net bets from bank.
+
+// Spin wheel
+// - 15 second delay? - Display "No more bets."
+//   - Disable betting options
+// - 20 second delay? - Get result from wheel:  number/color
+// - Check for wins by payout ratios
+// - ?? second delay? - Add net wins to bank
+// Add result to previous results list/display
+// Remove oldest (5th? 10th?) result from previous results list/display
+// Reenable betting
 
 
-// Retrieve bet placement(s)
-
-// Get bet type for payout
-
-// Retrieve bet amount(s)
-
-// Verify player has total in bank.
-let balance = 1000
-// Get balance.
-
-// Remove bet amount total from bank
+let bank = 1000
 
 // Spin roulette wheel
-let ballPosition = Math.floor(Math.random() * table.wheel.length)
+let wheelResult = Math.floor(Math.random() * table.wheel.length)
 // Get result from wheel
-console.log(table.wheel[ballPosition])
-if (table.red.includes(table.wheel[ballPosition])) {
-    balance += 10;
+console.log(table.wheel[wheelResult])
+if (table.red.includes(table.wheel[wheelResult])) {
+    bank += 10;
     console.log("red")
-} else if (table.black.includes(table.wheel[ballPosition])) {
+} else if (table.black.includes(table.wheel[wheelResult])) {
     console.log("black")
 }
 
