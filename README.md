@@ -12,11 +12,10 @@
 ### Inside Bets
 - Straight up (35 to 1 payout) - any single number, including 0  
 
+### Inside Bets _ (to be added in a later version) _
+- Split (17 to 1 payout) - any two adjoining numbers vertical or horizontal
+- Basket (11 to 1 payout) - 
+- Street (11 to 1 payout) - any three numbers horizontal (1, 2, 3, or 4, 5, 6 etc.)
+- Corner (8 to 1 payout) - any four adjoining numbers in a block (eg 17, 18, 20, 21)
+- Six Line (5 to 1) - any six numbers from two rows (eg 28, 29, 30, 31, 32, 33)
 
-- _ Split (17 to 1 payout) - any two adjoining numbers vertical or horizontal * _
-- _ Basket (11 to 1 payout) - * _
-- _ Street (11 to 1 payout) - any three numbers horizontal (1, 2, 3, or 4, 5, 6 etc.) * _
-- _ Corner (8 to 1 payout) - any four adjoining numbers in a block (eg 17, 18, 20, 21) * _
-- _ Six Line (5 to 1) - any six numbers from two rows (eg 28, 29, 30, 31, 32, 33) * _
-
-_ * = To be added later _
