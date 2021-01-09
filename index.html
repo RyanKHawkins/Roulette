@@ -6,16 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Roulette</title>
 	<script src="script.js" type="module"></script>
-    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<div id="wheel">Wheel</div>
 	<div id="table">
 		<div id="previous_results">Previous Results</div>
-        <div class="inside_bets bets">
+		<div class="inside_bets bets">
 
-        </div>
+		</div>
 		<div class="selections outside_bets bets">
 			<button>1st 12</button>
             <button>2nd 12</button>
@@ -30,10 +30,10 @@
             <button>19 to 36</button>
         </div>
         <div>
-
+            <input type="number" id="bet_amount" placeholder="Place your bet." min="0" style="text-align: center">
+            <button id="place_bet" onclick="console.log(`Placed bet of ${getElementById('bet_amount').value}.`)">Place bet</button>
         </div>
-        <input type="number" id="bet_amount" placeholder="Place your bet." style="text-align: center">
-        <button id="place_bet" onclick="console.log(`Placed bet of ${getElementById('bet_amount').value}.`)">Place bet</button>
+
     </div>
 </body>
 </html>
