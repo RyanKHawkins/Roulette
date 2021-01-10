@@ -12,7 +12,7 @@
 <body>
 	<div id="wheel">Wheel</div>
 	<div id="table">
-		<div id="previous_results">Previous Results</div>
+		<div id="resultsList">Previous Results</div>
 		<div class="insideBets bets">
 
 		</div>
@@ -22,12 +22,18 @@
             <button>3rd 12</button>
         </div>
         <div class="selections outsideBets bets">
-            <button>1 to 18</button>
-            <button>Even</button>
-            <button>Red</button>
-            <button>Black</button>
-            <button>Odd</button>
-            <button>19 to 36</button>
+            <button data-payout="">1 to 18</button>
+            <button data-payout="">Even</button>
+            <button data-payout="">Red</button>
+            <button data-payout="">Black</button>
+            <button data-payout="">Odd</button>
+            <button data-payout="">19 to 36</button>
+        </div>
+        <div id="displayWindow">
+            Let's play roulette!
+            //No more bets.
+            //`${color} ${number}`
+            //`You won ${winAmount}!` / `You lost ${lossAmount}`
         </div>
         <div>
             <input type="number" id="betAmount" placeholder="Place your bet." min="0" style="text-align: center">
