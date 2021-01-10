@@ -13,15 +13,15 @@
 	<div id="wheel">Wheel</div>
 	<div id="table">
 		<div id="previous_results">Previous Results</div>
-		<div class="inside_bets bets">
+		<div class="insideBets bets">
 
 		</div>
-		<div class="selections outside_bets bets">
+		<div class="selections outsideBets bets">
 			<button>1st 12</button>
             <button>2nd 12</button>
             <button>3rd 12</button>
         </div>
-        <div class="selections outside_bets bets">
+        <div class="selections outsideBets bets">
             <button>1 to 18</button>
             <button>Even</button>
             <button>Red</button>
@@ -30,8 +30,9 @@
             <button>19 to 36</button>
         </div>
         <div>
-            <input type="number" id="bet_amount" placeholder="Place your bet." min="0" style="text-align: center">
-            <button id="place_bet" onclick="console.log(`Placed bet of ${getElementById('bet_amount').value}.`)">Place bet</button>
+            <input type="number" id="betAmount" placeholder="Place your bet." min="0" style="text-align: center">
+            <button id="betBtn" onclick="console.log(`Placed bet of ${getElementById('betAmount').value}.`)">Place bet</button>
+            <button id="spinBtn">Spin Wheel</button>
         </div>
 
     </div>
