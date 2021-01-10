@@ -16,46 +16,46 @@
 		<div class="insideBets bets">
             <table>
                 <tr>
-                    <td>3</td>
-                    <td>6</td>
-                    <td>9</td>
-                    <td>12</td>
-                    <td>15</td>
-                    <td>18</td>
-                    <td>21</td>
-                    <td>24</td>
-                    <td>27</td>
-                    <td>30</td>
-                    <td>33</td>
-                    <td>36</td>
+                    <td data-number="" data-color="">3</td>
+                    <td data-number="" data-color="">6</td>
+                    <td data-number="" data-color="">9</td>
+                    <td data-number="" data-color="">12</td>
+                    <td data-number="" data-color="">15</td>
+                    <td data-number="" data-color="">18</td>
+                    <td data-number="" data-color="">21</td>
+                    <td data-number="" data-color="">24</td>
+                    <td data-number="" data-color="">27</td>
+                    <td data-number="" data-color="">30</td>
+                    <td data-number="" data-color="">33</td>
+                    <td data-number="" data-color="">36</td>
                 </tr>
                 <tr>
-                    <td>2</td>
-                    <td>5</td>
-                    <td>8</td>
-                    <td>11</td>
-                    <td>14</td>
-                    <td>17</td>
-                    <td>20</td>
-                    <td>23</td>
-                    <td>26</td>
-                    <td>29</td>
-                    <td>32</td>
-                    <td>35</td>
+                    <td data-number="" data-color="">2</td>
+                    <td data-number="" data-color="">5</td>
+                    <td data-number="" data-color="">8</td>
+                    <td data-number="" data-color="">11</td>
+                    <td data-number="" data-color="">14</td>
+                    <td data-number="" data-color="">17</td>
+                    <td data-number="" data-color="">20</td>
+                    <td data-number="" data-color="">23</td>
+                    <td data-number="" data-color="">26</td>
+                    <td data-number="" data-color="">29</td>
+                    <td data-number="" data-color="">32</td>
+                    <td data-number="" data-color="">35</td>
                 </tr>
                 <tr>
-                    <td>1</td>
-                    <td>4</td>
-                    <td>7</td>
-                    <td>10</td>
-                    <td>13</td>
-                    <td>16</td>
-                    <td>19</td>
-                    <td>22</td>
-                    <td>25</td>
-                    <td>28</td>
-                    <td>31</td>
-                    <td>34</td>
+                    <td data-number="" data-color="">1</td>
+                    <td data-number="" data-color="">4</td>
+                    <td data-number="" data-color="">7</td>
+                    <td data-number="" data-color="">10</td>
+                    <td data-number="" data-color="">13</td>
+                    <td data-number="" data-color="">16</td>
+                    <td data-number="" data-color="">19</td>
+                    <td data-number="" data-color="">22</td>
+                    <td data-number="" data-color="">25</td>
+                    <td data-number="" data-color="">28</td>
+                    <td data-number="" data-color="">31</td>
+                    <td data-number="" data-color="">34</td>
                 </tr>
             </table>
 		</div>
@@ -73,13 +73,14 @@
             <button data-payout="">19 to 36</button>
         </div>
         <div id="displayWindow">
+            <p>Balance: $<span id="bankBalance">100</span></p>
             Let's play roulette!
             //No more bets.
             //`${color} ${number}`
             //`You won ${winAmount}!` / `You lost ${lossAmount}`
         </div>
         <div>
-            <input type="number" id="betAmount" placeholder="Place your bet." min="0" style="text-align: center">
+            <input type="number" id="betAmount" placeholder="Place your bet." min="0" max="`${getElementById('bankBalance').value}`" style="text-align: center">
             <button id="betBtn" onclick="console.log(`Placed bet of ${getElementById('betAmount').value}.`)">Place bet</button>
             <button id="spinBtn">Spin Wheel</button>
         </div>
