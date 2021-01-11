@@ -10,51 +10,51 @@
 </head>
 
 <body>
-	<div id="wheel">Wheel</div>
+	<div id="wheel">Wheel <span id="wheelResult"></span></div>
 	<div id="table">
 		<div id="resultsList">Previous Results</div>
 		<div class="insideBets bets">
             <table>
                 <tr>
                     <td class="red" data-number="" data-color="">3</td>
-                    <td data-number="" data-color="">6</td>
+                    <td class="black" data-number="" data-color="">6</td>
                     <td class="red" data-number="" data-color="">9</td>
                     <td class="red" data-number="" data-color="">12</td>
-                    <td data-number="" data-color="">15</td>
+                    <td class="black" data-number="" data-color="">15</td>
                     <td class="red" data-number="" data-color="">18</td>
                     <td class="red" data-number="" data-color="">21</td>
-                    <td data-number="" data-color="">24</td>
+                    <td class="black" data-number="" data-color="">24</td>
                     <td class="red" data-number="" data-color="">27</td>
                     <td class="red" data-number="" data-color="">30</td>
-                    <td data-number="" data-color="">33</td>
+                    <td class="black" data-number="" data-color="">33</td>
                     <td class="red" data-number="" data-color="">36</td>
                 </tr>
                 <tr>
-                    <td data-number="" data-color="">2</td>
+                    <td class="black" data-number="" data-color="">2</td>
                     <td class="red" data-number="" data-color="">5</td>
-                    <td data-number="" data-color="">8</td>
-                    <td data-number="" data-color="">11</td>
+                    <td class="black" data-number="" data-color="">8</td>
+                    <td class="black" data-number="" data-color="">11</td>
                     <td class="red" data-number="" data-color="">14</td>
-                    <td data-number="" data-color="">17</td>
-                    <td data-number="" data-color="">20</td>
+                    <td class="black" data-number="" data-color="">17</td>
+                    <td class="black" data-number="" data-color="">20</td>
                     <td class="red" data-number="" data-color="">23</td>
-                    <td data-number="" data-color="">26</td>
-                    <td data-number="" data-color="">29</td>
+                    <td class="black" data-number="" data-color="">26</td>
+                    <td class="black" data-number="" data-color="">29</td>
                     <td class="red" data-number="" data-color="">32</td>
-                    <td data-number="" data-color="">35</td>
+                    <td class="black" data-number="" data-color="">35</td>
                 </tr>
                 <tr>
                     <td class="red" data-number="" data-color="">1</td>
-                    <td data-number="" data-color="">4</td>
+                    <td class="black" data-number="" data-color="">4</td>
                     <td class="red" data-number="" data-color="">7</td>
-                    <td data-number="" data-color="">10</td>
-                    <td data-number="" data-color="">13</td>
+                    <td class="black" data-number="" data-color="">10</td>
+                    <td class="black" data-number="" data-color="">13</td>
                     <td class="red" data-number="" data-color="">16</td>
                     <td class="red" data-number="" data-color="">19</td>
-                    <td data-number="" data-color="">22</td>
+                    <td class="black" data-number="" data-color="">22</td>
                     <td class="red" data-number="" data-color="">25</td>
-                    <td data-number="" data-color="">28</td>
-                    <td data-number="" data-color="">31</td>
+                    <td class="black" data-number="" data-color="">28</td>
+                    <td class="black" data-number="" data-color="">31</td>
                     <td class="red" data-number="" data-color="">34</td>
                 </tr>
             </table>
@@ -68,7 +68,7 @@
             <button data-payout="">1 to 18</button>
             <button data-payout="">Even</button>
             <button class="red" data-payout="">Red</button>
-            <button data-payout="">Black</button>
+            <button class="black" data-payout="">Black</button>
             <button data-payout="">Odd</button>
             <button data-payout="">19 to 36</button>
         </div>
@@ -80,9 +80,9 @@
             //`You won ${winAmount}!` / `You lost ${lossAmount}`
         </div>
         <div>
-            <input type="number" id="betAmount" placeholder="Place your bet." min="0" max="`${getElementById('bankBalance').value}`" style="text-align: center">
+            <input type="number" id="betAmount" placeholder="Place your bet." min="0" max="`${getElementById('bankBalance').value}`" step="25" style="text-align: center">
             <button id="betBtn" onclick="console.log(`Placed bet of ${getElementById('betAmount').value}.`)">Place bet</button>
-            <button id="spinBtn" onclick="console.log('Spinning wheel')">Spin Wheel</button>
+            <button id="spinBtn" onclick="console.log('Spinning wheel...')">Spin Wheel</button>
         </div>
 
     </div>
