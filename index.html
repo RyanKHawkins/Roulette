@@ -75,18 +75,22 @@
             <span data-payout="">Odd</span>
             <span data-payout="">19 to 36</span>
         </div>
-        <div id="displayWindow">
-            <p>Balance: $<span id="bankBalance">100</span></p>
-            Let's play roulette!
-            //No more bets.
-            //`${color} ${number}`
-            //`You won ${winAmount}!` / `You lost ${lossAmount}`
+        <div id="playerDashboard">
+            <div id="displayWindow">
+
+                Let's play roulette!
+                //No more bets.
+                //`${color} ${number}`
+                //`You won ${winAmount}!` / `You lost ${lossAmount}`
+            </div>
+            <div id="playerConsole">
+                <p>Balance: $<span id="bankBalance">100</span></p>                
+                <input type="number" id="betAmount" placeholder="Place your bet." min="0" max="`${getElementById('bankBalance').value}`" step="25" style="text-align: center">
+                <button id="betBtn" onclick="console.log(`${}:  Placed bet of ${getElementById('betAmount').value}.`)">Place bet</button>
+                <button id="spinBtn" onclick="console.log('Spinning wheel...')">Spin Wheel</button>
+            </div>
         </div>
-        <div>
-            <input type="number" id="betAmount" placeholder="Place your bet." min="0" max="`${getElementById('bankBalance').value}`" step="25" style="text-align: center">
-            <button id="betBtn" onclick="console.log(`${}:  Placed bet of ${getElementById('betAmount').value}.`)">Place bet</button>
-            <button id="spinBtn" onclick="console.log('Spinning wheel...')">Spin Wheel</button>
-        </div>
+
 
     </div>
 </body>

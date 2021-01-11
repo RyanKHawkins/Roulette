@@ -3,8 +3,18 @@ div {
 }
 
 #resultsList {
-    border: 1px solid black;
+    //border: 1px solid black;
     padding: .25em;
+    background-color: rgba(0, 0, 0, 5%)
+}
+
+#playerDashboard {
+    border: 1px solid black;
+    padding: .5em;
+}
+
+#playerConsole {
+
 }
 
 button:hover,
