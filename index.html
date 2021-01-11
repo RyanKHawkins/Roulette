@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td class="black" data-number="" data-color="">2</td>
-                    <td class="red" data-number="" data-color="">5</td>
+                    <td class="red" onclick="console.log(target.value)" data-number="" data-color="">5</td>
                     <td class="black" data-number="" data-color="">8</td>
                     <td class="black" data-number="" data-color="">11</td>
                     <td class="red" data-number="" data-color="">14</td>
@@ -86,7 +86,7 @@
             <div id="playerConsole">
                 <p>Balance: $<span id="bankBalance">100</span></p>                
                 <input type="number" id="betAmount" placeholder="Place your bet." min="0" max="`${getElementById('bankBalance').value}`" step="25" style="text-align: center">
-                <button id="betBtn" onclick="console.log(`${}:  Placed bet of ${getElementById('betAmount').value}.`)">Place bet</button>
+                <button id="betBtn" onclick="console.log(`:  Placed bet of ${getElementById('betAmount').value}.`)">Place bet</button>
                 <button id="spinBtn" onclick="console.log('Spinning wheel...')">Spin Wheel</button>
             </div>
         </div>
