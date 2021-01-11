@@ -1,5 +1,5 @@
 div {
-    margin-top: 1em;
+    margin-top: .5em;
 }
 
 #resultsList {
@@ -15,4 +15,12 @@ td:hover
 
 .red {
     color: red;
+}
+
+.selections > span,
+td
+{
+    border: 1px solid black;
+    padding: .1em .2em;
+    cursor: pointer;
 }
