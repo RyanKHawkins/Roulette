@@ -2,8 +2,8 @@
 
 ## Bet types
 ### Outside Bets - 2 to 1 payouts
-- column1, column2, column3
-- dozen1, dozen2, dozen3
+- 1st column, 2nd column, 3rd column
+- 1st 12, 2nd 12, 3rd 12
 ### Outside Bets - 1 to 1 payouts
 - red, black
 - even, odd
@@ -12,7 +12,8 @@
 ### Inside Bets
 - Straight up (35 to 1 payout) - any single number, including 0  
 
-### Inside Bets _ (to be added in a later version) _
+### Inside Bets
+###### _ (to be added in a later version) _
 - Split (17 to 1 payout) - any two adjoining numbers vertical or horizontal
 - Basket (11 to 1 payout) - 
 - Street (11 to 1 payout) - any three numbers horizontal (1, 2, 3, or 4, 5, 6 etc.)
