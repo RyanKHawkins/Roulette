@@ -5,7 +5,7 @@ var wheelResult_span = document.querySelector("#wheelResult");
 var prevResults_span = document.querySelector("#previousResults");
 // TODO:  Add bet selections
 var displayWindow = document.querySelector("#displayWindow");
-var bankBalance = document.querySelector("#bankBalance");
+var bankBalance_span = document.querySelector("#bankBalance");
 var betAmount = document.querySelector("#betAmount");
 var betBtn = document.querySelector("#betBtn");
 var spinBtn = document.querySelector("#spinBtn");
@@ -15,23 +15,7 @@ var spinBtn = document.querySelector("#spinBtn");
 
 spinBtn.addEventListener("click", spinWheel);
 
-/*  Display:
-    - last 5 spots landed - w/ colored background
-    - Current money
-    - Selection options
-        - Specific spot
-        - 1st 12
-        - 2nd 12
-        - 3rd 12
-        - 1st column
-        - 2nd column
-        - 3rd column
-        - Odd/Even
-        - Red/Black
-    - Roulette wheel?? Later version
-*/
-
-let bank = 1000;
+let bankBalance = 1000;
 let wheelResult;
 var bettingAllowed = true;
 
@@ -62,7 +46,7 @@ var bettingAllowed = true;
 function spinWheel() {
     displayWindow.innerText = "No more bets.";
     bettingAllowed = false;
-    bankBalance >= betAmount ? bankBalance -= betAmount : displayWindow.innerText = "You don't have enough money";
+    bankBalance <= betAmount ? bankBalance -= betAmount : displayWindow.innerText = "You don't have enough money";
     bankBalance -= betAmount;
     wheelResult = Math.floor(Math.random() * table.wheel.length)
     
