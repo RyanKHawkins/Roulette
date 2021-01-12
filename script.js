@@ -1,5 +1,22 @@
 import * as table from "/table.js"
 
+
+// Variables from DOM
+var wheelResult_span = document.querySelector("#wheelResult");
+var prevResults_span = document.querySelector("#previousResults");
+// TODO:  Add bet selections
+var displayWindow = document.querySelector("#displayWindow");
+var bankBalance = document.querySelector("#bankBalance");
+var betAmount = document.querySelector("#betAmount");
+var betBtn = document.querySelector("#betBtn");
+var spinBtn = document.querySelector("#spinBtn");
+
+// Event Listeners
+//TODO:  Add bet selections
+
+spinBtn.addEventListener("click", spinWheel);
+
+
 /*  Display:
     - last 5 spots landed - w/ colored background
     - Current money
@@ -36,10 +53,14 @@ import * as table from "/table.js"
 // Reenable betting
 
 
-let bank = 1000
+let bank = 1000;
+let wheelResult;
 
 // Spin roulette wheel
-let wheelResult = Math.floor(Math.random() * table.wheel.length)
+function spinWheel() {
+    wheelResult = Math.floor(Math.random() * table.wheel.length)
+    wheelResult_span.innerHTML = wheelResult;
+}
 // Get result from wheel
 console.log(table.wheel[wheelResult])
 if (table.red.includes(table.wheel[wheelResult])) {
