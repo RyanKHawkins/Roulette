@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Roulette</title>
-	<script src="script.js" type="module"></script>
+	<script src="script.js" type="module" defer></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,64 +16,64 @@
 		<div class="insideBets bets selections">
             <table>
                 <tr>
-                    <td class="red" data-number="" data-color="">3</td>
-                    <td class="black" data-number="" data-color="">6</td>
-                    <td class="red" data-number="" data-color="">9</td>
-                    <td class="red" data-number="" data-color="">12</td>
-                    <td class="black" data-number="" data-color="">15</td>
-                    <td class="red" data-number="" data-color="">18</td>
-                    <td class="red" data-number="" data-color="">21</td>
-                    <td class="black" data-number="" data-color="">24</td>
-                    <td class="red" data-number="" data-color="">27</td>
-                    <td class="red" data-number="" data-color="">30</td>
-                    <td class="black" data-number="" data-color="">33</td>
-                    <td class="red" data-number="" data-color="">36</td>
-                    <td id="">Column 3</td>
+                    <td id="3" class="red" data-number="" data-color="">3</td>
+                    <td id="6" class="black" data-number="" data-color="">6</td>
+                    <td id="9" class="red" data-number="" data-color="">9</td>
+                    <td id="12" class="red" data-number="" data-color="">12</td>
+                    <td id="15" class="black" data-number="" data-color="">15</td>
+                    <td id="18" class="red" data-number="" data-color="">18</td>
+                    <td id="21" class="red" data-number="" data-color="">21</td>
+                    <td id="24" class="black" data-number="" data-color="">24</td>
+                    <td id="27" class="red" data-number="" data-color="">27</td>
+                    <td id="30" class="red" data-number="" data-color="">30</td>
+                    <td id="33" class="black" data-number="" data-color="">33</td>
+                    <td id="36" class="red" data-number="" data-color="">36</td>
+                    <td id="column3">Column 3</td>
                 </tr>
                 <tr>
-                    <td class="black" data-number="" data-color="">2</td>
-                    <td class="red" onclick="console.log(target.value)" data-number="" data-color="">5</td>
-                    <td class="black" data-number="" data-color="">8</td>
-                    <td class="black" data-number="" data-color="">11</td>
-                    <td class="red" data-number="" data-color="">14</td>
-                    <td class="black" data-number="" data-color="">17</td>
-                    <td class="black" data-number="" data-color="">20</td>
-                    <td class="red" data-number="" data-color="">23</td>
-                    <td class="black" data-number="" data-color="">26</td>
-                    <td class="black" data-number="" data-color="">29</td>
-                    <td class="red" data-number="" data-color="">32</td>
-                    <td class="black" data-number="" data-color="">35</td>
-                    <td id="">Column 2</td>
+                    <td id="2" class="black" data-number="" data-color="">2</td>
+                    <td id="5" class="red" data-number="" data-color="">5</td>
+                    <td id="8" class="black" data-number="" data-color="">8</td>
+                    <td id="11" class="black" data-number="" data-color="">11</td>
+                    <td id="14" class="red" data-number="" data-color="">14</td>
+                    <td id="17" class="black" data-number="" data-color="">17</td>
+                    <td id="20" class="black" data-number="" data-color="">20</td>
+                    <td id="23" class="red" data-number="" data-color="">23</td>
+                    <td id="26" class="black" data-number="" data-color="">26</td>
+                    <td id="29" class="black" data-number="" data-color="">29</td>
+                    <td id="32" class="red" data-number="" data-color="">32</td>
+                    <td id="35" class="black" data-number="" data-color="">35</td>
+                    <td id="column2" id="column2">Column 2</td>
                 </tr>
                 <tr>
-                    <td class="red" data-number="" data-color="">1</td>
-                    <td class="black" data-number="" data-color="">4</td>
-                    <td class="red" data-number="" data-color="">7</td>
-                    <td class="black" data-number="" data-color="">10</td>
-                    <td class="black" data-number="" data-color="">13</td>
-                    <td class="red" data-number="" data-color="">16</td>
-                    <td class="red" data-number="" data-color="">19</td>
-                    <td class="black" data-number="" data-color="">22</td>
-                    <td class="red" data-number="" data-color="">25</td>
-                    <td class="black" data-number="" data-color="">28</td>
-                    <td class="black" data-number="" data-color="">31</td>
-                    <td class="red" data-number="" data-color="">34</td>
-                    <td id="">Column 1</td>
+                    <td id="1" class="red" data-number="" data-color="">1</td>
+                    <td id="4" class="black" data-number="" data-color="">4</td>
+                    <td id="7" class="red" data-number="" data-color="">7</td>
+                    <td id="10" class="black" data-number="" data-color="">10</td>
+                    <td id="13" class="black" data-number="" data-color="">13</td>
+                    <td id="16" class="red" data-number="" data-color="">16</td>
+                    <td id="19" class="red" data-number="" data-color="">19</td>
+                    <td id="22" class="black" data-number="" data-color="">22</td>
+                    <td id="25" class="red" data-number="" data-color="">25</td>
+                    <td id="28" class="black" data-number="" data-color="">28</td>
+                    <td id="31" class="black" data-number="" data-color="">31</td>
+                    <td id="34" class="red" data-number="" data-color="">34</td>
+                    <td id="column1" id="">Column 1</td>
                 </tr>
             </table>
 		</div>
 		<div class="selections outsideBets bets">
-			<span>1st 12</span>
-            <span>2nd 12</span>
-            <span>3rd 12</span>
+			<span id="first12">1st 12</span>
+            <span id="second12">2nd 12</span>
+            <span id="third12">3rd 12</span>
         </div>
         <div class="selections outsideBets bets">
-            <span data-payout="">1 to 18</span>
-            <span data-payout="">Even</span>
-            <span class="red" data-payout="">Red</span>
-            <span class="black" data-payout="">Black</span>
-            <span data-payout="">Odd</span>
-            <span data-payout="">19 to 36</span>
+            <span id="low" data-payout="">1 to 18</span>
+            <span id="even" data-payout="">Even</span>
+            <span id="red" class="red" data-payout="">Red</span>
+            <span id="black" class="black" data-payout="">Black</span>
+            <span id="odd" data-payout="">Odd</span>
+            <span id="high" data-payout="">19 to 36</span>
         </div>
         <div id="playerDashboard">
             <div id="displayWindow">
@@ -84,7 +84,7 @@
                 //`You won ${winAmount}!` / `You lost ${lossAmount}`
             </div>
             <div id="playerConsole">
-                <p>Balance: $<span id="bankBalance">100</span></p>                
+                <p>Balance: $<span id="bankBalance">1000</span></p>                
                 <input type="number" id="betAmount" placeholder="Place your bet." min="0" max="`${getElementById('bankBalance').value}`" step="25" style="text-align: center" value="0">
                 <button id="betBtn" onclick="console.log(`:  Placed bet of ${getElementById('betAmount').value}.`)">Place bet</button>
                 <button id="spinBtn" onclick="console.log('Spinning wheel...')">Spin Wheel</button>
