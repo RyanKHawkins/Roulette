@@ -14,7 +14,10 @@ var spinBtn = document.querySelector("#spinBtn");
 //TODO:  Add bet selections
 
 spinBtn.addEventListener("click", spinWheel);
+betBtn.addEventListener("click", setBet);
+
 document.addEventListener("click", (e) => console.log(`Target clicked:  ${e.target.id}`))
+
 
 var bankBalance = 1000;
 var wheelResult;
@@ -22,6 +25,11 @@ var bettingAllowed = true;
 
 // Select bet
     // Display bet selection
+function setBet() {
+    bet = betAmount.value;
+    console.log(bet);
+}
+
 // Select bet amount
     // Confirm bet amount available from bank
 
