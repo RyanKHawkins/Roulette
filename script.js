@@ -16,7 +16,8 @@ var spinBtn = document.querySelector("#spinBtn");
 spinBtn.addEventListener("click", spinWheel);
 betBtn.addEventListener("click", setBet);
 
-document.addEventListener("click", (e) => console.log(`Target clicked:  ${e.target.id}`))
+// Use for evaluations
+document.addEventListener("click", (e) => console.log(`Target clicked:  ${e.target.id}\nClass(es):  ${e.target.className}`))
 
 
 var bankBalance = 1000;
@@ -26,7 +27,7 @@ var bettingAllowed = true;
 // Select bet
     // Display bet selection
 function setBet() {
-    bet = betAmount.value;
+    var bet = betAmount.value;
     console.log(bet);
 }
 
