@@ -1,5 +1,8 @@
 # Roulette
 
+## Gameplay
+- to be added soon
+
 ## Bet types
 ### Outside Bets - 2 to 1 payouts
 - 1st column, 2nd column, 3rd column
