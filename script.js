@@ -65,10 +65,11 @@ function payOutWins() {
 }
 
 // Reset table
-function resetTable {
+function resetTable() {
     // Reset bet selection
     // Reset bet amount
     // Re-enable betting
+    console.log("reset table")
 }
 
 
