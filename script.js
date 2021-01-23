@@ -17,8 +17,7 @@ spinBtn.addEventListener("click", spinWheel);
 betBtn.addEventListener("click", setBet);
 
 // Use for evaluations
-document.addEventListener("click", (e) => console.log(`Target clicked:  ${e.target.id}\nClass(es):  ${e.target.className}`))
-
+document.addEventListener("click", (e) => console.log(`Target ID:  ${e.target.id}\nClass(es):  ${e.target.className}`))
 
 var bankBalance = 1000;
 var wheelResult;
@@ -41,6 +40,7 @@ function spinWheel() {
     wheelResult = Math.floor(Math.random() * table.wheel.length)
 }
 
+spinWheel()
 // Get wheel result    
 wheelResult_span.innerHTML = wheelResult;
 console.log(table.wheel[wheelResult])
@@ -74,7 +74,6 @@ function resetTable() {
 
 
 if (table.red.includes(table.wheel[wheelResult])) {
-    bank += 10;
     console.log("red")
 } else if (table.black.includes(table.wheel[wheelResult])) {
     console.log("black")
