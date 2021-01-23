@@ -30,27 +30,8 @@ function setBet() {
     var bet = betAmount.value;
     console.log(bet);
 }
-
 // Select bet amount
     // Confirm bet amount available from bank
-
-// Get wheel result
-// Display result
-    // Add result to list of results
-    // Remove oldest result from list of results
-    // Update results list display
-    // Display win or lost
-
-// Check for wins by payout (switch message?)
-    // Check for inside bets won
-    // Check for outside bets won
-// Award bets
-
-// Reset table
-    // Reset bet selection
-    // Reset bet amount
-    // Re-enable betting
-    //
 
 // Spin roulette wheel
 function spinWheel() {
@@ -58,11 +39,38 @@ function spinWheel() {
     bettingAllowed = false;
     bankBalance -= betAmount;
     wheelResult = Math.floor(Math.random() * table.wheel.length)
-    
-    wheelResult_span.innerHTML = wheelResult;
-    console.log(table.wheel[wheelResult])
 }
-// Get result from wheel
+
+// Get wheel result    
+wheelResult_span.innerHTML = wheelResult;
+console.log(table.wheel[wheelResult])
+
+// Display result
+    // Add result to list of results
+    // Remove oldest result from list of results
+    // Update results list display
+    // Display win or lost
+
+// Check for wins by payout (switch message?)
+function checkForWins() {
+    // Check for inside bets won
+
+    // Check for outside bets won
+
+}
+
+// Award bets
+function payOutWins() {
+
+}
+
+// Reset table
+function resetTable {
+    // Reset bet selection
+    // Reset bet amount
+    // Re-enable betting
+}
+
 
 if (table.red.includes(table.wheel[wheelResult])) {
     bank += 10;
