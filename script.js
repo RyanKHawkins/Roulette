@@ -45,7 +45,10 @@ spinWheel()
 wheelResult_span.innerHTML = wheelResult;
 console.log(table.wheel[wheelResult])
 
+
 // Display result
+displayWheelResult()
+
     // Add result to list of results
     // Remove oldest result from list of results
     // Update results list display
@@ -69,12 +72,16 @@ function resetTable() {
     // Reset bet selection
     // Reset bet amount
     // Re-enable betting
+    bettingAllowed = true;
     console.log("reset table")
 }
 
-
-if (table.red.includes(table.wheel[wheelResult])) {
-    console.log("red")
-} else if (table.black.includes(table.wheel[wheelResult])) {
-    console.log("black")
+function displayWheelResult() {
+    var color
+    if (table.red.includes(table.wheel[wheelResult])) {
+        color = "Red";
+    } else if (table.black.includes(table.wheel[wheelResult])) {
+        color = "Black"
+    } else color = "Green"
+    console.log(`${color} ${table.wheel[wheelResult]}`)
 }
