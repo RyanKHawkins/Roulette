@@ -3,58 +3,65 @@ import * as table from "/table.js"
 // Variables from DOM
 var wheelResult_span = document.querySelector("#wheelResult");
 var prevResults_span = document.querySelector("#previousResults");
-// TODO:  Add bet selections
+// TODO:  Add betAmount selections
+var betSelections = document.querySelectorAll(".red");
 
-var displayWindow = document.querySelector("#displayWindow");
+var displayWindow_p = document.querySelector("#displayWindow")
+var messageDisplay_p = document.querySelector("#messageDisplay");
+var betDisplay_p = document.querySelector("#betDisplay")
 var bankBalance_span = document.querySelector("#bankBalance");
 var betAmount = document.querySelector("#betAmount");
 var betBtn = document.querySelector("#betBtn");
 var spinBtn = document.querySelector("#spinBtn");
 
 // Event Listeners
-//TODO:  Add bet selections
+//TODO:  Add betAmount selections
 
 spinBtn.addEventListener("click", spinWheel);
-betBtn.addEventListener("click", setBet);
+betBtn.addEventListener("click", setBetAmount);
 
 // Use for evaluations
-document.addEventListener("click", (e) => console.log(`Target ID:  ${e.target.id}\nClass(es):  ${e.target.className}`))
+//document.addEventListener("click", (e) => console.log(`Target ID:  ${e.target.id}\nClass(es):  ${e.target.className}`))
 
 var bankBalance = 1000;
 var wheelResult;
 var bettingAllowed = true;
 
-// Select bet
-    // Display bet selection
+// Select betAmount
+function selectBetOption(e) {
+    console.log(e)
+    console.log("selected bet option")
+}
+// Display bet selection
 
 // Select bet amount
-function setBet() {
-    var bet = betAmount.value;
-    console.log(bet);
+function setBetAmount() {
+    betDisplay_p.innerHTML = betAmount.value
+    console.log("set bet amount")
 }
-    // Confirm bet amount available from bank
+// Confirm betAmount amount available from bank
 
 // Spin roulette wheel
 function spinWheel() {
     displayWindow.innerText = "No more bets.";
     bettingAllowed = false;
-    bankBalance -= betAmount;
-    wheelResult = Math.floor(Math.random() * table.wheel.length)
+    bankBalance -= parseInt(betAmount);
+    // Get wheel result
+    wheelResult = getWheelResult()
+    // Display Results
+    setTimeout(
+        displayWheelResult,
+        3000
+        );
+    setTimeout(resetTable, 6000)
+    console.log("Spinning wheel...")
 }
 
-spinWheel()
-// Get wheel result    
-wheelResult_span.innerHTML = wheelResult;
-console.log(table.wheel[wheelResult])
 
-
-// Display result
-displayWheelResult()
-
-    // Add result to list of results
-    // Remove oldest result from list of results
-    // Update results list display
-    // Display win or lost
+// Add result to list of results
+// Remove oldest result from list of results
+// Update results list display
+// Display win or lost
 
 // Check for wins by payout (switch message?)
 function checkForWins() {
@@ -62,20 +69,35 @@ function checkForWins() {
 
     // Check for outside bets won
 
+    console.log("check for wins")
+}
+
+function manageBetting() {
+
+    console.log("managed betting")
 }
 
 // Award bets
 function payOutWins() {
 
+    console.log("pay out wins")
 }
 
 // Reset table
 function resetTable() {
-    // Reset bet selection
-    // Reset bet amount
+    // Reset betAmount selection
+    // Reset betAmount amount
+    betAmount.value = 0;
+    betDisplay_p.innerHTML = "Place your bet."
     // Re-enable betting
     bettingAllowed = true;
+    //updateBalance();
     console.log("reset table")
+}
+
+function getWheelResult() {
+    return Math.floor(Math.random() * table.wheel.length)
+    console.log("got wheel result")
 }
 
 function displayWheelResult() {
@@ -85,5 +107,9 @@ function displayWheelResult() {
     } else if (table.black.includes(table.wheel[wheelResult])) {
         color = "Black"
     } else color = "Green"
+    displayWindow.innerText = `${color} ${table.wheel[wheelResult]}`
     console.log(`${color} ${table.wheel[wheelResult]}`)
+    console.log("display wheel result")
 }
+
+// updateBalance
