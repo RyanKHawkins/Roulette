@@ -2,6 +2,11 @@
     user-select: none;
 }
 
+#table {
+    background-color: #06a108;
+    padding: 1em;
+}
+
 div {
     margin-top: .5em;
 }
@@ -13,7 +18,9 @@ div {
 }
 
 #playerDashboard {
+    margin-top: 25px;
     border: 1px solid black;
+    background-color: lightgray;
     padding: .5em;
 }
 
