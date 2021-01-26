@@ -4,6 +4,7 @@ import * as table from "/table.js"
 var wheelResult_span = document.querySelector("#wheelResult");
 var prevResults_span = document.querySelector("#previousResults");
 // TODO:  Add bet selections
+
 var displayWindow = document.querySelector("#displayWindow");
 var bankBalance_span = document.querySelector("#bankBalance");
 var betAmount = document.querySelector("#betAmount");
@@ -25,11 +26,12 @@ var bettingAllowed = true;
 
 // Select bet
     // Display bet selection
+
+// Select bet amount
 function setBet() {
     var bet = betAmount.value;
     console.log(bet);
 }
-// Select bet amount
     // Confirm bet amount available from bank
 
 // Spin roulette wheel
