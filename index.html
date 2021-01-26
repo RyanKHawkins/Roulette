@@ -83,7 +83,7 @@
                 <!--`You won ${winAmount}!` / `You lost ${lossAmount}`-->
             </div>
             <div id="playerConsole">
-                <p>Balance: $<span id="bankBalance">1000</span></p>                
+                <p>Balance: $<span id="bankBalance" value="1000">1000</span></p>                
                 <input type="number" id="betAmount" placeholder="Place your bet." min="0" max="`${getElementById('bankBalance').value}`" step="25" style="text-align: center" value="0">
                 <button id="betBtn" onclick="console.log(`:  Placed bet of ${getElementById('betAmount').value}.`)">Place bet</button>
                 <button id="spinBtn">Spin Wheel</button>

@@ -36,7 +36,7 @@ function selectBetOption(e) {
 
 // Select bet amount
 function setBetAmount() {
-    betDisplay_p.innerHTML = betAmount.value
+    if (bettingAllowed) betDisplay_p.innerHTML = betAmount.value
     console.log("set bet amount")
 }
 // Confirm betAmount amount available from bank
@@ -45,7 +45,9 @@ function setBetAmount() {
 function spinWheel() {
     displayWindow.innerText = "No more bets.";
     bettingAllowed = false;
-    bankBalance -= parseInt(betAmount);
+    bankBalance -= betAmount.value;
+    console.log(`Bank balance:  ${bankBalance}`)
+    bankBalance_span.innerText = bankBalance
     // Get wheel result
     wheelResult = getWheelResult()
     // Display Results
