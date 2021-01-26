@@ -43,6 +43,7 @@ function setBetAmount() {
 
 // Spin roulette wheel
 function spinWheel() {
+    spinBtn.removeEventListener("click", spinWheel);
     displayWindow.innerText = "No more bets.";
     bettingAllowed = false;
     bankBalance -= betAmount.value;
@@ -54,7 +55,7 @@ function spinWheel() {
     setTimeout(
         displayWheelResult,
         3000
-        );
+    );
     setTimeout(resetTable, 6000)
     console.log("Spinning wheel...")
 }
@@ -93,6 +94,7 @@ function resetTable() {
     betDisplay_p.innerHTML = "Place your bet."
     // Re-enable betting
     bettingAllowed = true;
+    spinBtn.addEventListener("click", spinWheel);
     //updateBalance();
     console.log("reset table")
 }
