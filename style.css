@@ -3,7 +3,7 @@
 }
 
 #table {
-    background-color: #06a108;
+    background-color:  #006600;
     padding: 1em;
 }
 
@@ -35,7 +35,7 @@ td:hover
 }
 
 .red {
-    color: #B80C09;
+    color:  #900d09;
 }
 
 .selections > span,
