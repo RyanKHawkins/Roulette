@@ -4,7 +4,9 @@ import * as table from "/table.js"
 var wheelResult_span = document.querySelector("#wheelResult");
 var prevResults_span = document.querySelector("#previousResults");
 // TODO:  Add betAmount selections
-var betSelections = document.querySelectorAll(".red");
+var selections = document.querySelectorAll(".selection");
+var betSelections = Array.from(selections)
+console.log(betSelections)
 
 var displayWindow_p = document.querySelector("#displayWindow")
 var messageDisplay_p = document.querySelector("#messageDisplay");
@@ -17,6 +19,7 @@ var spinBtn = document.querySelector("#spinBtn");
 // Event Listeners
 //TODO:  Add betAmount selections
 
+betSelections.addEventListener("click", console.log("clicked"));
 spinBtn.addEventListener("click", spinWheel);
 betBtn.addEventListener("click", setBetAmount);
 
