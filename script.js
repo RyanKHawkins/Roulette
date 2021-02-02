@@ -4,9 +4,9 @@ import * as table from "/table.js"
 var wheelResult_span = document.querySelector("#wheelResult");
 var prevResults_span = document.querySelector("#previousResults");
 // TODO:  Add betAmount selections
-var selections = document.querySelectorAll(".selection");
-var betSelections = Array.from(selections)
-console.log(betSelections)
+var betSelections = Array.from(document.getElementsByClassName("selection"))
+
+//betSelections.forEach(addEventListener("click", (s) => console.log(s.target.id)))
 
 var displayWindow_p = document.querySelector("#displayWindow")
 var messageDisplay_p = document.querySelector("#messageDisplay");
@@ -19,9 +19,10 @@ var spinBtn = document.querySelector("#spinBtn");
 // Event Listeners
 //TODO:  Add betAmount selections
 
-betSelections.addEventListener("click", console.log("clicked"));
+//betSelections.addEventListener("click", console.log("clicked"));
 spinBtn.addEventListener("click", spinWheel);
 betBtn.addEventListener("click", setBetAmount);
+betSelections.forEach((selection) => selection.addEventListener("click", selectBetOption))
 
 // Use for evaluations
 //document.addEventListener("click", (e) => console.log(`Target ID:  ${e.target.id}\nClass(es):  ${e.target.className}`))
@@ -32,15 +33,15 @@ var bettingAllowed = true;
 
 // Select betAmount
 function selectBetOption(e) {
-    console.log(e)
-    console.log("selected bet option")
+    var betSelection = e.target.id
+    console.log(`Selected: ${betSelection}`)
 }
 // Display bet selection
 
 // Select bet amount
 function setBetAmount() {
     if (bettingAllowed) betDisplay_p.innerHTML = betAmount.value
-    console.log("set bet amount")
+    console.log(`Bet:  ${betAmount.value}`)
 }
 // Confirm betAmount amount available from bank
 
@@ -52,6 +53,7 @@ function spinWheel() {
     bankBalance -= betAmount.value;
     console.log(`Bank balance:  ${bankBalance}`)
     bankBalance_span.innerText = bankBalance
+    console.log("Spinning wheel...")
     // Get wheel result
     wheelResult = getWheelResult()
     // Display Results
@@ -60,9 +62,8 @@ function spinWheel() {
         3000
     );
     setTimeout(resetTable, 6000)
-    console.log("Spinning wheel...")
-}
 
+}
 
 // Add result to list of results
 // Remove oldest result from list of results
