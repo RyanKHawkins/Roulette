@@ -16,16 +16,10 @@ var betAmount = document.querySelector("#betAmount");
 var betBtn = document.querySelector("#betBtn");
 var spinBtn = document.querySelector("#spinBtn");
 
-// Event Listeners
-//TODO:  Add betAmount selections
-
 //betSelections.addEventListener("click", console.log("clicked"));
 spinBtn.addEventListener("click", spinWheel);
 betBtn.addEventListener("click", setBetAmount);
 betSelections.forEach((selection) => selection.addEventListener("click", selectBetOption))
-
-// Use for evaluations
-//document.addEventListener("click", (e) => console.log(`Target ID:  ${e.target.id}\nClass(es):  ${e.target.className}`))
 
 var bankBalance = 1000;
 var wheelResult;
@@ -40,7 +34,12 @@ function selectBetOption(e) {
 
 // Select bet amount
 function setBetAmount() {
-    if (bettingAllowed) betDisplay_p.innerHTML = betAmount.value
+    if (bettingAllowed) {
+        betDisplay_p.innerHTML = `Bet:  ${betAmount.value}`
+        bankBalance -= betAmount.value;
+    } else {
+        betDisplay_p.innerHTML = "Betting not currently allowed."
+    }
     console.log(`Bet:  ${betAmount.value}`)
 }
 // Confirm betAmount amount available from bank
@@ -50,7 +49,7 @@ function spinWheel() {
     spinBtn.removeEventListener("click", spinWheel);
     displayWindow.innerText = "No more bets.";
     bettingAllowed = false;
-    bankBalance -= betAmount.value;
+
     console.log(`Bank balance:  ${bankBalance}`)
     bankBalance_span.innerText = bankBalance
     console.log("Spinning wheel...")
@@ -95,7 +94,7 @@ function resetTable() {
     // Reset betAmount selection
     // Reset betAmount amount
     betAmount.value = 0;
-    betDisplay_p.innerHTML = "Place your bet."
+    betDisplay_p.innerText = "Place your bet."
     // Re-enable betting
     bettingAllowed = true;
     spinBtn.addEventListener("click", spinWheel);
