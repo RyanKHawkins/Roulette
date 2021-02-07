@@ -19,14 +19,14 @@ var spinBtn = document.querySelector("#spinBtn");
 //betSelections.addEventListener("click", console.log("clicked"));
 spinBtn.addEventListener("click", spinWheel);
 betBtn.addEventListener("click", setBetAmount);
-betSelections.forEach((selection) => selection.addEventListener("click", selectBetOption))
+betSelections.forEach((selection) => selection.addEventListener("click", selectBetPlacement))
 
 var bankBalance = 1000;
 var wheelResult;
 var bettingAllowed = true;
 
 // Select betAmount
-function selectBetOption(e) {
+function selectBetPlacement(e) {
     var betSelection = e.target.id
     console.log(`Selected: ${betSelection}`)
 }
@@ -42,6 +42,7 @@ function setBetAmount() {
     }
     console.log(`Bet:  ${betAmount.value}`)
 }
+
 // Confirm betAmount amount available from bank
 
 // Spin roulette wheel
@@ -61,7 +62,23 @@ function spinWheel() {
         3000
     );
     setTimeout(resetTable, 6000)
+}
 
+function getWheelResult() {
+    return Math.floor(Math.random() * table.wheel.length)
+    console.log("got wheel result")
+}
+
+function displayWheelResult() {
+    var color
+    if (table.red.includes(table.wheel[wheelResult])) {
+        color = "Red";
+    } else if (table.black.includes(table.wheel[wheelResult])) {
+        color = "Black"
+    } else color = "Green"
+    displayWindow.innerText = `${color} ${table.wheel[wheelResult]}`
+    console.log(`${color} ${table.wheel[wheelResult]}`)
+    console.log("display wheel result")
 }
 
 // Add result to list of results
@@ -102,21 +119,5 @@ function resetTable() {
     console.log("reset table")
 }
 
-function getWheelResult() {
-    return Math.floor(Math.random() * table.wheel.length)
-    console.log("got wheel result")
-}
-
-function displayWheelResult() {
-    var color
-    if (table.red.includes(table.wheel[wheelResult])) {
-        color = "Red";
-    } else if (table.black.includes(table.wheel[wheelResult])) {
-        color = "Black"
-    } else color = "Green"
-    displayWindow.innerText = `${color} ${table.wheel[wheelResult]}`
-    console.log(`${color} ${table.wheel[wheelResult]}`)
-    console.log("display wheel result")
-}
 
 // updateBalance
