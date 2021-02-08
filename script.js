@@ -69,23 +69,6 @@ function getWheelResult() {
     console.log("got wheel result")
 }
 
-function displayWheelResult() {
-    var color
-    if (table.red.includes(table.wheel[wheelResult])) {
-        color = "Red";
-    } else if (table.black.includes(table.wheel[wheelResult])) {
-        color = "Black"
-    } else color = "Green"
-    displayWindow.innerText = `${color} ${table.wheel[wheelResult]}`
-    console.log(`${color} ${table.wheel[wheelResult]}`)
-    console.log("display wheel result")
-}
-
-// Add result to list of results
-// Remove oldest result from list of results
-// Update results list display
-// Display win or lost
-
 // Check for wins by payout (switch message?)
 function checkForWins() {
     // Check for inside bets won
@@ -105,6 +88,24 @@ function payOutWins() {
 
     console.log("pay out wins")
 }
+
+function displayWheelResult() {
+    var color
+    if (table.red.includes(table.wheel[wheelResult])) {
+        color = "Red";
+    } else if (table.black.includes(table.wheel[wheelResult])) {
+        color = "Black"
+    } else color = "Green"
+    displayWindow.innerText = `${color} ${table.wheel[wheelResult]}`
+    console.log(`${color} ${table.wheel[wheelResult]}`)
+    console.log("display wheel result")
+}
+
+// Add result to list of results
+// Remove oldest result from list of results
+// Update results list display
+// Display win or lost
+
 
 // Reset table
 function resetTable() {
