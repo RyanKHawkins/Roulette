@@ -48,7 +48,7 @@ function setBetAmount() {
 // Spin roulette wheel
 function spinWheel() {
     spinBtn.removeEventListener("click", spinWheel);
-    displayWindow.innerText = "No more bets.";
+    betDisplay_p.innerText = "No more bets.";
     bettingAllowed = false;
 
     console.log(`Bank balance:  ${bankBalance}`)
@@ -96,7 +96,7 @@ function displayWheelResult() {
     } else if (table.black.includes(table.wheel[wheelResult])) {
         color = "Black"
     } else color = "Green"
-    displayWindow.innerText = `${color} ${table.wheel[wheelResult]}`
+    messageDisplay_p.innerText = `${color} ${table.wheel[wheelResult]}`
     console.log(`${color} ${table.wheel[wheelResult]}`)
     console.log("display wheel result")
 }
