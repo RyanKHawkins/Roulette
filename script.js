@@ -24,23 +24,30 @@ betSelections.forEach((selection) => selection.addEventListener("click", selectB
 var bankBalance = 1000;
 var wheelResult;
 var bettingAllowed = true;
+var betSelection
 
 // Select betAmount
 function selectBetPlacement(e) {
-    var betSelection = e.target.id
+    betSelection = e.target.id
+    // Display bet selection
+    betDisplay_p.innerHTML = `Selected ${betSelection}`
     console.log(`Selected: ${betSelection}`)
 }
-// Display bet selection
+
 
 // Select bet amount
 function setBetAmount() {
-    if (bettingAllowed) {
-        betDisplay_p.innerHTML = `Bet:  ${betAmount.value}`
+    if (bettingAllowed && betSelection) {
+        betDisplay_p.innerHTML = `Bet:  ${betAmount.value} on ${betSelection}`
         bankBalance -= betAmount.value;
+        console.log(`Bet:  ${betAmount.value} on ${betSelection}`)
     } else {
-        betDisplay_p.innerHTML = "Betting not currently allowed."
+        bettingAllowed
+            ? betDisplay_p.innerHTML = "You must select a bet placement."
+            : betDisplay_p.innerHTML = "No betting alllowed."
+        console.log("Attempted to bet.")
     }
-    console.log(`Bet:  ${betAmount.value}`)
+
 }
 
 // Confirm betAmount amount available from bank
@@ -114,6 +121,7 @@ function resetTable() {
     betAmount.value = 0;
     betDisplay_p.innerText = "Place your bet."
     // Re-enable betting
+    betSelection = ""
     bettingAllowed = true;
     spinBtn.addEventListener("click", spinWheel);
     //updateBalance();
