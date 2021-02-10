@@ -6,7 +6,6 @@ var prevResults_span = document.querySelector("#previousResults");
 // TODO:  Add betAmount selections
 var betSelections = Array.from(document.getElementsByClassName("selection"))
 
-//betSelections.forEach(addEventListener("click", (s) => console.log(s.target.id)))
 
 var displayWindow_p = document.querySelector("#displayWindow")
 var messageDisplay_p = document.querySelector("#messageDisplay");
@@ -16,7 +15,6 @@ var betAmount = document.querySelector("#betAmount");
 var betBtn = document.querySelector("#betBtn");
 var spinBtn = document.querySelector("#spinBtn");
 
-//betSelections.addEventListener("click", console.log("clicked"));
 spinBtn.addEventListener("click", spinWheel);
 betBtn.addEventListener("click", setBetAmount);
 betSelections.forEach((selection) => selection.addEventListener("click", selectBetPlacement))
