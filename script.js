@@ -119,7 +119,6 @@ function displayWheelResult() {
 // Update results list display
 // Display win or lost
 
-
 // Reset table
 function resetTable() {
     // Reset betAmount selection
@@ -131,8 +130,6 @@ function resetTable() {
     bankBalance > 2000 ? betAmount.max = 2000 : betAmount.max = bankBalance;
     bettingAllowed = true;
     spinBtn.addEventListener("click", spinWheel);
-    console.log("reset table")
+    console.log("reset table\n")
 }
 
-
-// updateBalance
