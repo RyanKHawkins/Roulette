@@ -3,21 +3,22 @@ import * as table from "/table.js"
 // Variables from DOM
 var wheelResult_span = document.querySelector("#wheelResult");
 var prevResults_span = document.querySelector("#previousResults");
-// TODO:  Add betAmount selections
+
 var betSelections = Array.from(document.getElementsByClassName("selection"))
 
-
-var displayWindow_p = document.querySelector("#displayWindow")
 var messageDisplay_p = document.querySelector("#messageDisplay");
 var betDisplay_p = document.querySelector("#betDisplay")
 var bankBalance_span = document.querySelector("#bankBalance");
 var betAmount = document.querySelector("#betAmount");
 var betBtn = document.querySelector("#betBtn");
 var spinBtn = document.querySelector("#spinBtn");
+var resetBtn = document.querySelector("#resetBtn");
 
+// Event Listeners
 spinBtn.addEventListener("click", spinWheel);
 betBtn.addEventListener("click", setBetAmount);
 betSelections.forEach((selection) => selection.addEventListener("click", selectBetPlacement))
+resetBtn.addEventListener("click", resetBets)
 
 var bankBalance = 1000;
 var wheelResult;
@@ -32,23 +33,22 @@ function selectBetPlacement(e) {
     console.log(`Selected: ${betSelection}`)
 }
 
-
 // Select bet amount
-function setBetAmount() {
-    if (bettingAllowed && betSelection) {
-        betDisplay_p.innerHTML = `Bet:  ${betAmount.value} on ${betSelection}`
-        bankBalance -= betAmount.value;
-        console.log(`Bet:  ${betAmount.value} on ${betSelection}`)
-    } else {
-        bettingAllowed
-            ? betDisplay_p.innerHTML = "You must select a bet placement."
-            : betDisplay_p.innerHTML = "No betting alllowed."
-        console.log("Attempted to bet.")
-    }
-
-}
-
 // Confirm betAmount amount available from bank
+function setBetAmount() {
+    if (bettingAllowed && betSelection && betAmount.value <= bankBalance) {
+        betDisplay_p.innerHTML = `Bet:  ${betAmount.value} on ${betSelection}`;
+        bankBalance -= betAmount.value;
+        console.log(`Bet:  ${betAmount.value} on ${betSelection}`);
+    } else if (betAmount.value > bankBalance) {
+        betDisplay_p.innerHTML = "You do not have enough money to make that bet.";
+        betAmount.value = 0;
+    } else if (!bettingAllowed) {
+        betDisplay_p.innerHTML = "Hold your bets."
+    } else {
+        betDisplay_p.innerHTML = "You must select a bet placement."
+    }
+}
 
 // Spin roulette wheel
 function spinWheel() {
@@ -67,6 +67,14 @@ function spinWheel() {
         3000
     );
     setTimeout(resetTable, 6000)
+}
+
+function resetBets() {
+    if (bettingAllowed) {
+        betAmount.value = 0;
+        betSelection = "";
+        betDisplay_p.innerHTML = "Place your bet."
+    }
 }
 
 function getWheelResult() {
@@ -120,9 +128,9 @@ function resetTable() {
     betDisplay_p.innerText = "Place your bet."
     // Re-enable betting
     betSelection = ""
+    bankBalance > 2000 ? betAmount.max = 2000 : betAmount.max = bankBalance;
     bettingAllowed = true;
     spinBtn.addEventListener("click", spinWheel);
-    //updateBalance();
     console.log("reset table")
 }
 
