@@ -27,9 +27,11 @@ var bettingAllowed = true;
 var betSelection
 var resultsList = []
 var WAITTIME = 5000
+var BETLIMIT = 2000
 
 // Select betAmount
 function selectBetPlacement(e) {
+    if (!bettingAllowed) return
     betSelection = e.target.id
     // Display bet selection
     betDisplay_p.innerHTML = `Selected ${betSelection}`
@@ -43,11 +45,11 @@ function setBetAmount() {
         betDisplay_p.innerHTML = `Bet:  ${betAmount.value} on ${betSelection}`;
         bankBalance -= betAmount.value;
         console.log(`Bet:  ${betAmount.value} on ${betSelection}`);
+    } else if (!bettingAllowed) {
+        betDisplay_p.innerHTML = "Hold your bets."
     } else if (betAmount.value > bankBalance) {
         betDisplay_p.innerHTML = "You do not have enough money to make that bet.";
         betAmount.value = 0;
-    } else if (!bettingAllowed) {
-        betDisplay_p.innerHTML = "Hold your bets."
     } else {
         betDisplay_p.innerHTML = "You must select a bet placement."
     }
@@ -105,6 +107,8 @@ function payOutWins() {
     console.log("pay out wins")
 }
 
+// Displays in the console
+// TODO:  Scale down
 function displayWheelResult() {
     var color
     if (table.red.includes(table.wheel[wheelResult])) {
@@ -147,7 +151,7 @@ function resetTable() {
     betDisplay_p.innerText = "Place your bet."
     // Re-enable betting
     betSelection = ""
-    bankBalance > 2000 ? betAmount.max = 2000 : betAmount.max = bankBalance;
+    bankBalance > BETLIMIT ? betAmount.max = BETLIMIT : betAmount.max = bankBalance;
     bettingAllowed = true;
     spinBtn.addEventListener("click", spinWheel);
     console.log("reset table\n")
