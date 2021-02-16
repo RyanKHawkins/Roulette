@@ -2,6 +2,7 @@ import * as table from "/table.js"
 
 // Variables from DOM
 var wheelResult_span = document.querySelector("#wheelResult");
+var resultsList_span = document.querySelector("#resultsList")
 var prevResults_span = document.querySelector("#previousResults");
 
 var betSelections = Array.from(document.getElementsByClassName("selection"))
@@ -24,6 +25,7 @@ var bankBalance = 1000;
 var wheelResult;
 var bettingAllowed = true;
 var betSelection
+var previousResults = []
 
 // Select betAmount
 function selectBetPlacement(e) {
@@ -111,14 +113,31 @@ function displayWheelResult() {
     } else color = "Green"
     messageDisplay_p.innerText = `${color} ${table.wheel[wheelResult]}`
     console.log(`${color} ${table.wheel[wheelResult]}`)
+    displayPreviousResults()
     console.log("display wheel result")
 }
 
 // Add result to list of results
-// Remove oldest result from list of results
-// Update results list display
-// Display win or lost
+function displayPreviousResults() {
+    previousResults.push(table.wheel[wheelResult])
+    //Remove oldest result if more than 10
+    while (previousResults.length > 10) {
+        console.log(`Removed ${previousResults.shift()}`)
+    }
+    prevResults_span.innerHTML = ""
+    previousResults.forEach((result) => {
+        prevResults_span.append(` ${result} `)
+    })
+}
 
+//TODO:  Fix this!!
+function setDisplayColor(result) {
+    if (table.red.includes(parseInt(result))) {
+        return `<span style.color="red">${result}</span`
+    }
+}
+
+// Display win or lost
 // Reset table
 function resetTable() {
     // Reset betAmount selection
@@ -132,4 +151,3 @@ function resetTable() {
     spinBtn.addEventListener("click", spinWheel);
     console.log("reset table\n")
 }
-
