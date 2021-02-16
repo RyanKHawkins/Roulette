@@ -2,8 +2,8 @@ import * as table from "/table.js"
 
 // Variables from DOM
 var wheelResult_span = document.querySelector("#wheelResult");
-var resultsList_span = document.querySelector("#resultsList")
-var prevResults_span = document.querySelector("#previousResults");
+var resultsDisplay_span = document.querySelector("#resultsDisplay")
+var prevResults_span = document.querySelector("#resultsList");
 
 var betSelections = Array.from(document.getElementsByClassName("selection"))
 
@@ -25,7 +25,7 @@ var bankBalance = 1000;
 var wheelResult;
 var bettingAllowed = true;
 var betSelection
-var previousResults = []
+var resultsList = []
 var WAITTIME = 5000
 
 // Select betAmount
@@ -120,13 +120,13 @@ function displayWheelResult() {
 
 // Add result to list of results
 function displayPreviousResults() {
-    previousResults.push(table.wheel[wheelResult])
+    resultsList.push(table.wheel[wheelResult])
     //Remove oldest result if more than 10
-    while (previousResults.length > 10) {
-        console.log(`Removed ${previousResults.shift()}`)
+    while (resultsList.length > 10) {
+        console.log(`Removed ${resultsList.shift()}`)
     }
     prevResults_span.innerHTML = ""
-    previousResults.forEach((result) => {
+    resultsList.forEach((result) => {
         prevResults_span.append(` ${result} `)
     })
 }

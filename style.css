@@ -11,7 +11,7 @@ div {
     margin-top: .5em;
 }
 
-#resultsList {
+#resultsDisplay {
     //border: 1px solid black;
     padding: .25em;
     background-color: rgba(0, 0, 0, 5%)
