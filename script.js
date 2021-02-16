@@ -26,6 +26,7 @@ var wheelResult;
 var bettingAllowed = true;
 var betSelection
 var previousResults = []
+var WAITTIME = 5000
 
 // Select betAmount
 function selectBetPlacement(e) {
@@ -66,9 +67,9 @@ function spinWheel() {
     // Display Results
     setTimeout(
         displayWheelResult,
-        3000
+        WAITTIME
     );
-    setTimeout(resetTable, 6000)
+    setTimeout(resetTable, WAITTIME)
 }
 
 function resetBets() {
