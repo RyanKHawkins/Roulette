@@ -146,12 +146,13 @@ function payOutWins() {
 // Display win or lost
 // Reset table
 function resetTable() {
-    resetBets()
+
     betDisplay_p.innerText = "Place your bet."
 
 
     bankBalance > BETLIMIT ? betAmount.max = BETLIMIT : betAmount.max = bankBalance;
     bettingAllowed = true; // Reenable betting
+    resetBets()
     spinBtn.addEventListener("click", spinWheel);
     console.log("reset table\n")
 }
