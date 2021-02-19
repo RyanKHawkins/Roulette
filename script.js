@@ -1,7 +1,8 @@
 import * as table from "/table.js"
 
 // Variables from DOM
-var wheelResult_span = document.querySelector("#wheelResult");
+var wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
+
 var resultsDisplay_span = document.querySelector("#resultsDisplay")
 var prevResults_span = document.querySelector("#resultsList");
 
@@ -11,6 +12,7 @@ var messageDisplay_p = document.querySelector("#messageDisplay");
 var betDisplay_p = document.querySelector("#betDisplay")
 var bankBalance_span = document.querySelector("#bankBalance");
 var betAmount = document.querySelector("#betAmount");
+
 var betBtn = document.querySelector("#betBtn");
 var spinBtn = document.querySelector("#spinBtn");
 var resetBtn = document.querySelector("#resetBtn");
@@ -21,13 +23,14 @@ betBtn.addEventListener("click", setBetAmount);
 betSelections.forEach((selection) => selection.addEventListener("click", selectBetPlacement))
 resetBtn.addEventListener("click", resetBets)
 
+// Initiating Variables
 var bankBalance = 1000;
 var wheelResult;
 var bettingAllowed = true;
 var betSelection
 var resultsList = []
-var WAITTIME = 5000
-var BETLIMIT = 2000
+const WAITTIME = 5000
+const BETLIMIT = 2000
 
 // Select betAmount
 function selectBetPlacement(e) {
@@ -61,10 +64,8 @@ function spinWheel() {
     betDisplay_p.innerText = "No more bets.";
     bettingAllowed = false;
 
-    console.log(`Bank balance:  ${bankBalance}`)
     bankBalance_span.innerText = bankBalance
     console.log("Spinning wheel...")
-    // Get wheel result
     wheelResult = getWheelResult()
     // Display Results
     setTimeout(
@@ -74,37 +75,9 @@ function spinWheel() {
     setTimeout(resetTable, WAITTIME)
 }
 
-function resetBets() {
-    if (bettingAllowed) {
-        betAmount.value = 0;
-        betSelection = "";
-        betDisplay_p.innerHTML = "Place your bet."
-    }
-}
-
 function getWheelResult() {
     return Math.floor(Math.random() * table.wheel.length)
     console.log("got wheel result")
-}
-
-// Check for wins by payout (switch message?)
-function checkForWins() {
-    // Check for inside bets won
-
-    // Check for outside bets won
-
-    console.log("check for wins")
-}
-
-function manageBetting() {
-
-    console.log("managed betting")
-}
-
-// Award bets
-function payOutWins() {
-
-    console.log("pay out wins")
 }
 
 // Displays in the console
@@ -140,6 +113,34 @@ function setDisplayColor(result) {
     if (table.red.includes(parseInt(result))) {
         return `<span style.color="red">${result}</span`
     }
+}
+
+function resetBets() {
+    if (bettingAllowed) {
+        betAmount.value = 0;
+        betSelection = "";
+        betDisplay_p.innerHTML = "Place your bet."
+    }
+}
+
+// Check for wins by payout (switch message?)
+function checkForWins() {
+    // Check for inside bets won
+
+    // Check for outside bets won
+
+    console.log("check for wins")
+}
+
+function manageBetting() {
+
+    console.log("managed betting")
+}
+
+// Award bets
+function payOutWins() {
+
+    console.log("pay out wins")
 }
 
 // Display win or lost
