@@ -58,6 +58,14 @@ function setBetAmount() {
     }
 }
 
+function resetBets() {
+    if (bettingAllowed) {
+        betAmount.value = 0;
+        betSelection = "";
+        betDisplay_p.innerHTML = "Place your bet."
+    }
+}
+
 // Spin roulette wheel
 function spinWheel() {
     spinBtn.removeEventListener("click", spinWheel);
@@ -77,7 +85,7 @@ function spinWheel() {
 
 function getWheelResult() {
     return Math.floor(Math.random() * table.wheel.length)
-    console.log("got wheel result")
+    console.log("retrieved wheel result")
 }
 
 // Displays in the console
@@ -115,14 +123,6 @@ function setDisplayColor(result) {
     }
 }
 
-function resetBets() {
-    if (bettingAllowed) {
-        betAmount.value = 0;
-        betSelection = "";
-        betDisplay_p.innerHTML = "Place your bet."
-    }
-}
-
 // Check for wins by payout (switch message?)
 function checkForWins() {
     // Check for inside bets won
@@ -146,14 +146,12 @@ function payOutWins() {
 // Display win or lost
 // Reset table
 function resetTable() {
-    // Reset betAmount selection
-    // Reset betAmount amount
-    betAmount.value = 0;
+    resetBets()
     betDisplay_p.innerText = "Place your bet."
-    // Re-enable betting
-    betSelection = ""
+
+
     bankBalance > BETLIMIT ? betAmount.max = BETLIMIT : betAmount.max = bankBalance;
-    bettingAllowed = true;
+    bettingAllowed = true; // Reenable betting
     spinBtn.addEventListener("click", spinWheel);
     console.log("reset table\n")
 }
