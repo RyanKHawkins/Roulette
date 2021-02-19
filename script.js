@@ -27,7 +27,7 @@ resetBtn.addEventListener("click", resetBets)
 var bankBalance = 1000;
 var wheelResult;
 var bettingAllowed = true;
-var betSelection
+var betSelection 
 var resultsList = []
 const WAITTIME = 5000
 const BETLIMIT = 2000
