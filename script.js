@@ -132,6 +132,23 @@ function checkForWins() {
     console.log("check for wins")
 }
 
+/**
+ * If bet selection matches the wheel result,
+ * award payout.
+ * 
+ * If bet is outside 1-to-1 payout (red, black, odd, even, low, high),
+ * add betAmount * 2 to bankBalance
+ * 
+ * if bet is outside 1-to-2 payout (1st12, 2nd12, 3rd12, column1, )
+ * 
+ * 
+ * 
+ */
+
+
+
+
+
 function manageBetting() {
 
     console.log("managed betting")
@@ -144,6 +161,8 @@ function payOutWins() {
 }
 
 // Display win or lost
+
+
 // Reset table
 function resetTable() {
 
