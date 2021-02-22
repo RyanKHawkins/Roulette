@@ -75,15 +75,18 @@
             <span id="odd" class="selection outside" data-payout="">Odd</span>
             <span id="high" class="selection outside" data-payout="">19 to 36</span>
         </div>
+
         <div id="playerDashboard">
             <div id="displayWindow">
 
-                <p id="messageDisplay">Let's play roulette!</p> 
-                <p id="betDisplay">Place your bet.</p>
-                <!--`You won ${winAmount}!` / `You lost ${lossAmount}`-->
-            </div>
-            <div id="playerConsole">
+                <p id="messageDisplay">Let's play roulette!</p>
                 <p>Balance: $<span id="bankBalance" value="5000">1000</span></p>                
+                <p id="betDisplay">Place your bet.</p>
+           <!--`You won ${winAmount}!` / `You lost ${lossAmount}`-->
+            </div>
+        
+            <div id="playerConsole">
+     
                 <input type="number" id="betAmount" placeholder="Place your bet." min="0" max="1000" step="25" style="text-align: center" value="0">
                 <button id="betBtn">Place bet</button>
                 <button id="spinBtn">Spin Wheel</button>
