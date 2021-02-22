@@ -4,7 +4,7 @@
 
 /*TODO:  Find more suitable green*/
 #table {
-    background-color:  #006600;
+    background-color:  #016d29;
     padding: 1em;
 }
 
@@ -35,9 +35,14 @@ td:hover
     cursor: pointer;
 }
 
-/*TODO:  Find a more visible red.*/
+.red, .black {
+    color: white
+}
 .red {
-    color:  #900d09;
+    background-color:  #bf0000;
+}
+.black {
+    background-color: black
 }
 
 .selections > span,
