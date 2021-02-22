@@ -4,7 +4,7 @@
 
 /*TODO:  Find more suitable green*/
 #table {
-    background-color:  #016d29;
+    background-color:  #197419;
     padding: 1em;
 }
 
@@ -33,6 +33,10 @@ button:hover,
 td:hover
 {
     cursor: pointer;
+}
+
+.outside {
+    background-color: #438b3b
 }
 
 .red, .black {
