@@ -111,22 +111,23 @@ function displayPreviousResults() {
         console.log(`Removed ${resultsList.shift()}`)
     }
     prevResults_span.innerHTML = ""
-    resultsList.forEach((result) => {
-        prevResults_span.append(` ${result} `)
+    var resultsDisplay = resultsList.forEach((result) => {
+        prevResults_span.append(` ${result}`)
     })
 }
 
 //TODO:  Fix this!!
+// Changes the font color depending in connection with the winning spot to display
 function setDisplayColor(result) {
     if (table.red.includes(parseInt(result))) {
-        return `<span style.color="red">${result}</span`
+        return `<span style.color="red">${result}</span>`
     }
 }
 
 // Check for wins by payout (switch message?)
 function checkForWins() {
     // Check for inside bets won
-
+    if (table.wheelResult == betSelection) console.log (`You won on ${betSelection}!`)
     // Check for outside bets won
 
     console.log("check for wins")
@@ -144,8 +145,6 @@ function checkForWins() {
  * 
  * 
  */
-
-
 
 
 
