@@ -1,4 +1,4 @@
-import * as table from "/table.js"
+//import * as table from "/table.js"
 
 // Variables from DOM
 var wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
