@@ -1,4 +1,4 @@
-import { wheel, column1, column2, column3, green, first12, second12, third12, red, black, even, odd, low, high } from "/table.js"
+import { wheel, column1, column2, column3, green, first12, second12, third12, red, black, even, odd, low, high } from "table.js"
 
 // Variables from DOM
 var wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
