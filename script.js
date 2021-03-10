@@ -1,4 +1,4 @@
-import * as table from "/table.js"
+import { wheel, column1, column2, column3, green, first12, second12, third12, red, black, even, odd, low, high } from "/table.js"
 
 // Variables from DOM
 var wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
@@ -88,7 +88,7 @@ function spinWheel() {
 }
 
 function getWheelResult() {
-    return Math.floor(Math.random() * table.wheel.length)
+    return Math.floor(Math.random() * wheel.length)
     console.log("retrieved wheel result")
 }
 
@@ -96,20 +96,20 @@ function getWheelResult() {
 // TODO:  Scale down
 function displayWheelResult() {
     var color
-    if (table.red.includes(table.wheel[wheelResult])) {
+    if (red.includes(wheel[wheelResult])) {
         color = "Red";
-    } else if (table.black.includes(table.wheel[wheelResult])) {
+    } else if (black.includes(wheel[wheelResult])) {
         color = "Black"
     } else color = "Green"
-    messageDisplay_p.innerText = `${color} ${table.wheel[wheelResult]}`
-    console.log(`${color} ${table.wheel[wheelResult]}`)
+    messageDisplay_p.innerText = `${color} ${wheel[wheelResult]}`
+    console.log(`${color} ${wheel[wheelResult]}`)
     displayPreviousResults()
     console.log("display wheel result")
 }
 
 // Add result to list of results
 function displayPreviousResults() {
-    resultsList.push(table.wheel[wheelResult])
+    resultsList.push(wheel[wheelResult])
     //Remove oldest result if more than 10
     while (resultsList.length > 10) {
         console.log(`Removed ${resultsList.shift()}`)
@@ -123,7 +123,7 @@ function displayPreviousResults() {
 //TODO:  Fix this!!
 // Changes the font color depending in connection with the winning spot to display
 function setDisplayColor(result) {
-    if (table.red.includes(parseInt(result))) {
+    if (red.includes(parseInt(result))) {
         return `<span style.color="red">${result}</span>`
     }
 }
@@ -131,7 +131,7 @@ function setDisplayColor(result) {
 // Check for wins by payout (switch message?)
 function checkForWins() {
     // Check for inside bets won
-    if (table.wheelResult == betSelection) console.log (`You won on ${betSelection}!`)
+    if (wheelResult == betSelection) console.log (`You won on ${betSelection}!`)
     // Check for outside bets won
 
     console.log("check for wins")
