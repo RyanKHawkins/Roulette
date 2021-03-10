@@ -21,13 +21,16 @@ var resetBtn = document.querySelector("#resetBtn");
 spinBtn.addEventListener("click", spinWheel);
 betBtn.addEventListener("click", setBetAmount);
 betSelections.forEach((selection) => selection.addEventListener("click", selectBetPlacement))
+//betSelections.onclick = (e) => betSelection = e.target.id
+
 resetBtn.addEventListener("click", resetBets)
+document.onclick = (e) => console.log(e.target.id)
 
 // Initiating Variables
 var bankBalance = 1000;
 var wheelResult;
 var bettingAllowed = true;
-var betSelection 
+var betSelection
 var resultsList = []
 const WAITTIME = 5000
 const BETLIMIT = 2000
@@ -39,6 +42,7 @@ function selectBetPlacement(e) {
     // Display bet selection
     betDisplay_p.innerHTML = `Selected ${betSelection}`
     console.log(`Selected: ${betSelection}`)
+    return betSelection
 }
 
 // Select bet amount
@@ -146,8 +150,6 @@ function checkForWins() {
  * 
  */
 
-
-
 function manageBetting() {
 
     console.log("managed betting")
@@ -160,7 +162,6 @@ function payOutWins() {
 }
 
 // Display win or lost
-
 
 // Reset table
 function resetTable() {
