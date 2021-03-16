@@ -49,9 +49,13 @@ function selectBetPlacement(e) {
 // Confirm betAmount amount available from bank
 function setBetAmount() {
     if (bettingAllowed && betSelection && betAmount.value <= bankBalance) {
-        betDisplay_p.innerHTML = `Bet:  ${betAmount.value} on ${betSelection}`;
+        var betAmountDisplay = betAmount.value;
+        if (betAmountDisplay[0] == "0") {
+            betAmountDisplay = betAmountDisplay.slice(1)
+        }
+        betDisplay_p.innerHTML = `Bet:  ${betAmountDisplay} on ${betSelection}`;
         bankBalance -= betAmount.value;
-        console.log(`Bet:  ${betAmount.value} on ${betSelection}`);
+        console.log(`Bet:  ${betAmountDisplay} on ${betSelection}`);
     } else if (!bettingAllowed) {
         betDisplay_p.innerHTML = "Hold your bets."
     } else if (betAmount.value > bankBalance) {
