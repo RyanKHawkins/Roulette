@@ -31,6 +31,7 @@ var bankBalance = 1000;
 var wheelResult;
 var bettingAllowed = true;
 var betSelection
+console.log(`Bet selection: ${betSelection}`)
 var resultsList = []
 const WAITTIME = 5000
 const BETLIMIT = 2000
@@ -39,6 +40,7 @@ const BETLIMIT = 2000
 function selectBetPlacement(e) {
     if (!bettingAllowed) return
     betSelection = e.target.id
+    console.log(`Bet selection: ${betSelection}`)
     // Display bet selection
     betDisplay_p.innerHTML = `Selected ${betSelection}`
     console.log(`Selected: ${betSelection}`)
@@ -69,6 +71,7 @@ function setBetAmount() {
 function resetBets() {
     if (bettingAllowed) {
         betAmount.value = 0;
+        console.log(`Bet selection: ${betSelection}`)
         betSelection = "";
         betDisplay_p.innerHTML = "Place your bet."
     }
@@ -134,6 +137,7 @@ function setDisplayColor(result) {
 
 // Check for wins by payout (switch message?)
 function checkForWins() {
+    console.log(`Bet selection: ${betSelection}`)
     // Check for inside bets won
     if (wheelResult == betSelection) console.log (`You won on ${betSelection}!`)
     // Check for outside bets won
