@@ -15,8 +15,6 @@
 ### Inside Bets
 - Straight up (35 to 1 payout) - any single number, including 0  
 
-### Inside Bets
- - Individual spots
 ###### _ (to be added in a later version) _
 - Split (17 to 1 payout) - any two adjoining numbers vertical or horizontal
 - Basket (11 to 1 payout) - 
