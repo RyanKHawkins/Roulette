@@ -7,6 +7,7 @@
 ### Outside Bets - 2 to 1 payouts
 - 1st column, 2nd column, 3rd column
 - 1st 12, 2nd 12, 3rd 12
+
 ### Outside Bets - 1 to 1 payouts
 - red, black
 - even, odd
