@@ -1,4 +1,4 @@
-//import { wheel, column1, column2, column3, green, first12, second12, third12, red, black, even, odd, low, high } from "./table.js"
+import { wheel, column1, column2, column3, green, first12, second12, third12, red, black, even, odd, low, high } from "./table.js"
 
 // This is a test to see if Github is showing this on the front as work.
 
