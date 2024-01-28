@@ -1,5 +1,3 @@
-// board.js
-
 // American Roulette Wheel
 const wheel = [
     "0", "28", "9", "26", "30", "11", "7", "20", "32", "17", "5", "22", "34",
@@ -9,12 +7,12 @@ const wheel = [
 
 /**
  * Inside Bets
- * - Straight up (35 to 1 payout) - any single number, including 0 and 00
- * - Split (17 to 1 payout) - any two adjoining numbers vertical or horizontal
- * - Basket (11 to 1 payout) - 0, 00, 1, 2, 3
- * - Street (11 to 1 payout) - any three numbers horizontal (1, 2, 3, or 4, 5, 6, etc.)
- * - Corner (8 to 1 payout) - any four adjoining numbers in a block (eg 17, 18, 20, 21)
- * - Six Line (5 to 1) - any six numbers from two rows (eg 28, 29, 30, 31, 32, 33)
+ * - Straight up (35 to 1 payout)   - any single number, including 0 and 00
+ * - Split (17 to 1 payout)         - any two adjoining numbers vertical or horizontal
+ * - Basket (11 to 1 payout)        - 0, 00, 1, 2, 3
+ * - Street (11 to 1 payout)        - any three numbers horizontal (1, 2, 3, or 4, 5, 6, etc.)
+ * - Corner (8 to 1 payout)         - any four adjoining numbers in a block (eg 17, 18, 20, 21)
+ * - Six Line (5 to 1)              - any six numbers from two rows (eg 28, 29, 30, 31, 32, 33)
  */
 
 /**
@@ -27,6 +25,7 @@ const wheel = [
  * - even, odd
  * - low (1 through 18), high (19 through 36) 
  */
+
 const column1 = ["1", "4", "7", "10", "13", "16", "19", "22", "25", "28", "31", "34"]
 const column2 = ["2", "5", "8", "11", "14", "17", "20", "23", "26", "29", "32", "35"]
 const column3 = ["3", "6", "9", "12", "15", "18", "21", "24", "27", "30", "33", "36"]
