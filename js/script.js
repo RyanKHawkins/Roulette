@@ -3,21 +3,21 @@ import { wheel, column1, column2, column3, green, first12, second12, third12, re
 // This is a test to see if Github is showing this on the front as work.
 
 // Variables from DOM
-var wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
+const wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
 
-var resultsDisplay_span = document.querySelector("#resultsDisplay")
-var prevResults_span = document.querySelector("#resultsList");
+const resultsDisplay_span = document.querySelector("#resultsDisplay")
+const prevResults_span = document.querySelector("#resultsList");
 
-var betSelections = Array.from(document.getElementsByClassName("selection"))
+const betSelections = Array.from(document.getElementsByClassName("selection"))
 
-var messageDisplay_p = document.querySelector("#messageDisplay");
-var betDisplay_p = document.querySelector("#betDisplay")
-var bankBalance_span = document.querySelector("#bankBalance");
-var betAmount = document.querySelector("#betAmount");
+const messageDisplay_p = document.querySelector("#messageDisplay");
+const betDisplay_p = document.querySelector("#betDisplay")
+const bankBalance_span = document.querySelector("#bankBalance");
+const betAmount = document.querySelector("#betAmount");
 
-var betBtn = document.querySelector("#betBtn");
-var spinBtn = document.querySelector("#spinBtn");
-var resetBtn = document.querySelector("#resetBtn");
+const betBtn = document.querySelector("#betBtn");
+const spinBtn = document.querySelector("#spinBtn");
+const resetBtn = document.querySelector("#resetBtn");
 
 // Event Listeners
 spinBtn.addEventListener("click", spinWheel);
@@ -29,12 +29,12 @@ resetBtn.addEventListener("click", resetBets)
 document.onclick = (e) => console.log(e.target.id)
 
 // Initiating Variables
-var bankBalance = 1000;
-var wheelResult;
-var bettingAllowed = true;
-var betSelection
+let bankBalance = 1000;
+let wheelResult;
+let bettingAllowed = true;
+let betSelection
 console.log(`Bet selection: ${betSelection}`)
-var resultsList = []
+let resultsList = []
 const WAITTIME = 5000
 const BETLIMIT = 2000
 
@@ -53,7 +53,7 @@ function selectBetPlacement(e) {
 // Confirm betAmount amount available from bank
 function setBetAmount() {
     if (bettingAllowed && betSelection && betAmount.value <= bankBalance) {
-        var betAmountDisplay = betAmount.value;
+        let betAmountDisplay = betAmount.value;
         if (betAmountDisplay[0] == "0") {
             betAmountDisplay = betAmountDisplay.slice(1)
         }
@@ -98,13 +98,12 @@ function spinWheel() {
 
 function getWheelResult() {
     return Math.floor(Math.random() * wheel.length)
-    console.log("retrieved wheel result")
 }
 
 // Displays in the console
 // TODO:  Scale down
 function displayWheelResult() {
-    var color
+    let color
     if (red.includes(wheel[wheelResult])) {
         color = "Red";
     } else if (black.includes(wheel[wheelResult])) {
@@ -124,7 +123,7 @@ function displayPreviousResults() {
         console.log(`Removed ${resultsList.shift()}`)
     }
     prevResults_span.innerHTML = ""
-    var resultsDisplay = resultsList.forEach((result) => {
+    let resultsDisplay = resultsList.forEach((result) => {
         prevResults_span.append(` ${result}`)
     })
 }
