@@ -109,31 +109,36 @@ function displayWheelResult() {
     } else if (black.includes(wheel[wheelResult])) {
         color = "Black"
     } else color = "Green"
-    messageDisplay_p.innerText = `${color} ${wheel[wheelResult]}`
+    // messageDisplay_p.innerText = `${color} ${wheel[wheelResult]}`
+    messageDisplay_p.innerHTML = `<p style="color: ${getResultColor(wheel[wheelResult])}">${wheel[wheelResult]}</p>`
     console.log(`${color} ${wheel[wheelResult]}`)
     displayPreviousResults()
     console.log("display wheel result")
 }
 
+function getResultColor(result) {
+    if (red.includes(result)) {
+        return "red"
+    }
+    if (black.includes(result)) {
+        return "black"
+    }
+    return "green"
+}
+
 // Add result to list of results
 function displayPreviousResults() {
     resultsList.push(wheel[wheelResult])
-    //Remove oldest result if more than 10
-    while (resultsList.length > 10) {
-        console.log(`Removed ${resultsList.shift()}`)
-    }
+    resultsList = resultsList.slice(-10);
+    console.log("resultsList: ", resultsList);
     prevResults_span.innerHTML = ""
-    let resultsDisplay = resultsList.forEach((result) => {
-        prevResults_span.append(` ${result}`)
+    // let resultsDisplay = resultsList.forEach((result) => {
+    //     prevResults_span.append(` ${result}`)
+    // })
+    prevResults_span.innerHTML = "";
+    resultsList.forEach(result => {
+        prevResults_span.innerHTML +=` <span style="color: ${getResultColor(result)}">${result}</span>`
     })
-}
-
-//TODO:  Fix this!!
-// Changes the font color depending in connection with the winning spot to display
-function setDisplayColor(result) {
-    if (red.includes(parseInt(result))) {
-        return `<span style.color="red">${result}</span>`
-    }
 }
 
 // Check for wins by payout (switch message?)
