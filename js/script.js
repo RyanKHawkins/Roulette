@@ -87,6 +87,7 @@ function spinWheel() {
 
     bankBalance_span.innerText = bankBalance
     console.log("Spinning wheel...")
+    messageDisplay_p.innerHTML = `<p>Spinning...</p>`
     wheelResult = getWheelResult()
     // Display Results
     setTimeout(
@@ -103,12 +104,7 @@ function getWheelResult() {
 // Displays in the console
 // TODO:  Scale down
 function displayWheelResult() {
-    let color
-    if (red.includes(wheel[wheelResult])) {
-        color = "Red";
-    } else if (black.includes(wheel[wheelResult])) {
-        color = "Black"
-    } else color = "Green"
+    const color = getResultColor(wheel[wheelResult]);
     // messageDisplay_p.innerText = `${color} ${wheel[wheelResult]}`
     messageDisplay_p.innerHTML = `<p style="color: ${getResultColor(wheel[wheelResult])}">${wheel[wheelResult]}</p>`
     console.log(`${color} ${wheel[wheelResult]}`)
