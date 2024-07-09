@@ -1,5 +1,6 @@
 # Journey
-
+This document will be for journal my thoughts related to this project.
+I wonder if I should add this to my .gitnore.
 
 ### 2021-02-04
 - Considering completely rewriting script.js.
