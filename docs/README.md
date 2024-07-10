@@ -1,5 +1,8 @@
 # Roulette
 
+
+![current table version](../images/current%20table%20(2024-07-09).jpg)
+
 ## Gameplay
 - to be added soon
 
