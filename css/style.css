@@ -15,7 +15,10 @@ div {
 #resultsDisplay {
     /*border: 1px solid black;*/
     padding: .25em;
-    background-color: rgba(255, 255, 255, 5%);
+    background-color: rgba(255, 255, 255, .20)
+}
+#resultsDisplay > span {
+    text-shadow: 0 0 1px black;
 }
 
 #resultsList {
@@ -47,7 +50,7 @@ td:hover
     color: white
 }
 .red {
-    background-color:  #bf0000;
+    background-color: red;
 }
 .black {
     background-color: black

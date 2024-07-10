@@ -37,6 +37,7 @@ console.log(`Bet selection: ${betSelection}`)
 let resultsList = []
 const WAITTIME = 5000
 const BETLIMIT = 2000
+let currentBet = 0;
 
 // Select betAmount
 function selectBetPlacement(e) {
@@ -44,7 +45,7 @@ function selectBetPlacement(e) {
     betSelection = e.target.id
     console.log(`Bet selection: ${betSelection}`)
     // Display bet selection
-    betDisplay_p.innerHTML = `Selected ${betSelection}`
+    betDisplay_p.innerHTML = `<p>You selected <span style="color: ${getResultColor(betSelection)}">${betSelection}</span></p>`
     console.log(`Selected: ${betSelection}`)
     return betSelection
 }
@@ -119,7 +120,9 @@ function getResultColor(result) {
     if (black.includes(result)) {
         return "black"
     }
-    return "green"
+    if (["0", "00"].includes(result)) {
+        return "green"
+    }
 }
 
 // Add result to list of results
