@@ -11,3 +11,5 @@ I wonder if I should add this to my .gitnore.
   - Color displays now show the color of the result.
 - Next, I'll need to build the betting logic.
 
+### 2024-07-09
+- So... this is becoming my first practice building something, using git/Github the way it's intended with pull requests, merge requests, and issues. I wished I'd be doing it this way all along. No more wishing. It's time for doing.
