@@ -1,20 +1,17 @@
 import { wheel, column1, column2, column3, green, first12, second12, third12, red, black, even, odd, low, high } from "./table.js"
 
-
-
-
 // Variables from DOM
 const wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
 
 const resultsDisplay_span = document.querySelector("#resultsDisplay")
 const prevResults_span = document.querySelector("#resultsList");
 
-const betSelections = Array.from(document.getElementsByClassName("selection"))
+const betPlacements = Array.from(document.getElementsByClassName("selection"))
 
 const messageDisplay_p = document.querySelector("#messageDisplay");
 const betDisplay_p = document.querySelector("#betDisplay")
 const bankBalance_span = document.querySelector("#bankBalance");
-const betAmount = document.querySelector("#betAmount");
+const betSelector = document.querySelector("#betAmount");
 
 const betBtn = document.querySelector("#betBtn");
 const spinBtn = document.querySelector("#spinBtn");
@@ -22,19 +19,24 @@ const resetBtn = document.querySelector("#resetBtn");
 
 // Event Listeners
 spinBtn.addEventListener("click", spinWheel);
-betBtn.addEventListener("click", setBetAmount);
-betSelections.forEach((selection) => selection.addEventListener("click", selectBetPlacement))
+// betBtn.addEventListener("click", setBetAmount);
+
+betPlacements.forEach((selection) => selection.addEventListener("click", selectBetPlacement))
 //betSelections.onclick = (e) => betSelection = e.target.id
 
 resetBtn.addEventListener("click", resetBets)
 document.onclick = (e) => console.log(e.target.id)
-
+betSelector.addEventListener("change", () => {
+    betAmount = Number(betSelector.value);
+    console.log("bet amount: ", betAmount)
+    console.log("type: ", typeof(betAmount))
+})
 // Initiating Variables
 let bankBalance = 1000;
 let wheelResult;
 let bettingAllowed = true;
-let betSelection
-console.log(`Bet selection: ${betSelection}`)
+let betAmount = 0;
+let betPlacement
 let resultsList = []
 const WAITTIME = 5000
 const BETLIMIT = 2000
@@ -43,54 +45,69 @@ let currentBet = 0;
 // Select betAmount
 function selectBetPlacement(e) {
     if (!bettingAllowed) return
-    betSelection = e.target.id
-    console.log(`Bet selection: ${betSelection}`)
+    betPlacement = e.target.id
+    console.log(`Bet placement: ${betPlacement}`)
     // Display bet selection
-    betDisplay_p.innerHTML = `<p>You selected <span style="color: ${getResultColor(betSelection)}">${betSelection}</span></p>`
-    console.log(`Selected: ${betSelection}`)
-    return betSelection
+    betDisplay_p.innerHTML = `<p>You selected <span style="color: ${getResultColor(betPlacement)}">${betPlacement}</span></p>`
+    return betPlacement
 }
 
 // Select bet amount
 // Confirm betAmount amount available from bank
-function setBetAmount() {
-    if (bettingAllowed && betSelection && betAmount.value <= bankBalance) {
-        let betAmountDisplay = betAmount.value;
-        if (betAmountDisplay[0] == "0") {
-            betAmountDisplay = betAmountDisplay.slice(1)
-        }
-        betDisplay_p.innerHTML = `Bet:  ${betAmountDisplay} on ${betSelection}`;
-        console.log(`Bet:  ${betAmountDisplay} on ${betSelection}`);
-    } else if (!bettingAllowed) {
-        betDisplay_p.innerHTML = "Hold your bets."
-    } else if (betAmount.value > bankBalance) {
-        betDisplay_p.innerHTML = "You do not have enough money to make that bet.";
-        betAmount.value = 0;
-    } else {
-        betDisplay_p.innerHTML = "You must select a bet placement."
+// function setBetAmount() {
+//     if (bettingAllowed && betPlacement && betAmount.value <= bankBalance) {
+//         let betAmountDisplay = betAmount.value;
+//         if (betAmountDisplay[0] == "0") {
+//             betAmountDisplay = betAmountDisplay.slice(1)
+//         }
+//         betDisplay_p.innerHTML = `Bet:  ${betAmountDisplay} on ${betPlacement}`;
+//         console.log(`Bet:  ${betAmountDisplay} on ${betPlacement}`);
+//     } else if (!bettingAllowed) {
+//         betDisplay_p.innerHTML = "Hold your bets."
+//     } else if (betAmount.value > bankBalance) {
+//         betDisplay_p.innerHTML = "You do not have enough money to make that bet.";
+//         betAmount.value = 0;
+//     } else {
+//         betDisplay_p.innerHTML = "You must select a bet placement."
+//     }
+// }
+
+function isValidBet() {
+    if (betAmount.value > bankBalance) {
+        console.log(betAmount.value, bankBalance);
+        return false
     }
+    if (betAmount.value > BETLIMIT) {
+        console.log(betAmount, BETLIMIT);
+        return false
+    }
+    return true
 }
 
 function resetBets() {
     if (bettingAllowed) {
-        betAmount.value = 0;
-        console.log(`Bet selection: ${betSelection}`)
-        betSelection = "";
+        betSelector.value = 0;
+        betAmount = 0;
+        betPlacement = "";
         betDisplay_p.innerHTML = "Place your bet."
     }
 }
 
 // Spin roulette wheel
 function spinWheel() {
-    if (betAmount.value == 0 || !betSelection) {
+    if (betAmount.value == 0 || !betPlacement) {
+        return
+    }
+    if (!isValidBet()) {
+        console.log("not a valid bet")
         return
     }
     spinBtn.removeEventListener("click", spinWheel);
     betDisplay_p.innerText = "No more bets.";
+    spinBtn.innerText = "Spinning..."
     bettingAllowed = false;
-
-    
-    bankBalance -= betAmount.value;
+    console.log("bet amount: ", betAmount);
+    bankBalance -= betAmount;
     bankBalance_span.innerText = bankBalance
     console.log("Spinning wheel...")
     messageDisplay_p.innerHTML = `<p>Spinning...</p>`
@@ -150,21 +167,22 @@ function displayPreviousResults() {
 
 // Check for wins by payout (switch message?)
 function checkForWins(result) {
-    console.log(`Bet selection: ${betSelection}`)
+    console.log(`Bet selection: ${betPlacement}`)
     // Check for inside bets won
-    if (result == betSelection) {
-        bankBalance += betAmount;
+    if (result == betPlacement) {
+        bankBalance += betAmount * 2;
     }
     // Check for outside bets won
-    if (["red", "black"].includes(betSelection)) {
-        if (betSelection == "red" && red.includes(result)) {
+    if (["red", "black"].includes(betPlacement)) {
+        if (betPlacement == "red" && red.includes(result)) {
             bankBalance += betAmount * 2
         }
-    if (betSelection == "black" && black.includes(result)) {
+    if (betPlacement == "black" && black.includes(result)) {
         bankBalance += betAmount * 2
     }
     }
     console.log("check for wins")
+    console.log("new balance: ", bankBalance);
 }
 
 /**
@@ -199,10 +217,11 @@ function resetTable() {
     betDisplay_p.innerText = "Place your bet."
 
 
-    bankBalance > BETLIMIT ? betAmount.max = BETLIMIT : betAmount.max = bankBalance;
+    bankBalance > BETLIMIT ? betSelector.max = BETLIMIT : betSelector.max = bankBalance;
     bettingAllowed = true; // Reenable betting
     resetBets()
     spinBtn.addEventListener("click", spinWheel);
-    betBtn.addEventListener("click", setBetAmount)
+    spinBtn.innerText = "Spin Wheel"
+    // betBtn.addEventListener("click", setBetAmount)
     console.log("reset table\n")
 }
