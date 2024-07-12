@@ -115,15 +115,11 @@ function spinWheel() {
     console.log("wheelResult:", wheelResult)
 
     setTimeout(() => {
-        displayWheelResult;
-        bankBalance_span.innerText = bankBalance                
-    }
-   ,
-        WAITTIME
-    );
-    setTimeout(resetTable, WAITTIME)
+        displayWheelResult();
+        bankBalance_span.innerText = bankBalance,
+        resetTable()
+    }, WAITTIME);
     checkForWins(wheelResult);
-
 }
 
 function getWheelResult() {
