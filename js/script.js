@@ -1,6 +1,7 @@
 import { wheel, column1, column2, column3, green, first12, second12, third12, red, black, even, odd, low, high } from "./table.js"
 
-// This is a test to see if Github is showing this on the front as work.
+
+
 
 // Variables from DOM
 const wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
@@ -59,7 +60,6 @@ function setBetAmount() {
             betAmountDisplay = betAmountDisplay.slice(1)
         }
         betDisplay_p.innerHTML = `Bet:  ${betAmountDisplay} on ${betSelection}`;
-        bankBalance -= betAmount.value;
         console.log(`Bet:  ${betAmountDisplay} on ${betSelection}`);
     } else if (!bettingAllowed) {
         betDisplay_p.innerHTML = "Hold your bets."
@@ -82,20 +82,28 @@ function resetBets() {
 
 // Spin roulette wheel
 function spinWheel() {
+    if (betAmount.value == 0 || !betSelection) {
+        return
+    }
     spinBtn.removeEventListener("click", spinWheel);
     betDisplay_p.innerText = "No more bets.";
     bettingAllowed = false;
 
+    
+    bankBalance -= betAmount.value;
     bankBalance_span.innerText = bankBalance
     console.log("Spinning wheel...")
     messageDisplay_p.innerHTML = `<p>Spinning...</p>`
-    wheelResult = getWheelResult()
+    wheelResult = wheel[getWheelResult()]
+    console.log("wheelResult:", wheelResult)
     // Display Results
     setTimeout(
         displayWheelResult,
         WAITTIME
     );
     setTimeout(resetTable, WAITTIME)
+    checkForWins(wheelResult);
+    bankBalance_span.innerText = bankBalance
 }
 
 function getWheelResult() {
@@ -105,10 +113,10 @@ function getWheelResult() {
 // Displays in the console
 // TODO:  Scale down
 function displayWheelResult() {
-    const color = getResultColor(wheel[wheelResult]);
+    const color = getResultColor(wheelResult);
     // messageDisplay_p.innerText = `${color} ${wheel[wheelResult]}`
-    messageDisplay_p.innerHTML = `<p style="color: ${getResultColor(wheel[wheelResult])}">${wheel[wheelResult]}</p>`
-    console.log(`${color} ${wheel[wheelResult]}`)
+    messageDisplay_p.innerHTML = `<p style="color: ${getResultColor(wheelResult)}">${wheelResult}</p>`
+    console.log(`${color} ${wheelResult}`)
     displayPreviousResults()
     console.log("display wheel result")
 }
@@ -127,7 +135,7 @@ function getResultColor(result) {
 
 // Add result to list of results
 function displayPreviousResults() {
-    resultsList.push(wheel[wheelResult])
+    resultsList.push(wheelResult)
     resultsList = resultsList.slice(-10);
     console.log("resultsList: ", resultsList);
     prevResults_span.innerHTML = ""
@@ -141,12 +149,21 @@ function displayPreviousResults() {
 }
 
 // Check for wins by payout (switch message?)
-function checkForWins() {
+function checkForWins(result) {
     console.log(`Bet selection: ${betSelection}`)
     // Check for inside bets won
-    if (wheelResult == betSelection) console.log (`You won on ${betSelection}!`)
+    if (result == betSelection) {
+        bankBalance += betAmount;
+    }
     // Check for outside bets won
-
+    if (["red", "black"].includes(betSelection)) {
+        if (betSelection == "red" && red.includes(result)) {
+            bankBalance += betAmount * 2
+        }
+    if (betSelection == "black" && black.includes(result)) {
+        bankBalance += betAmount * 2
+    }
+    }
     console.log("check for wins")
 }
 
@@ -186,5 +203,6 @@ function resetTable() {
     bettingAllowed = true; // Reenable betting
     resetBets()
     spinBtn.addEventListener("click", spinWheel);
+    betBtn.addEventListener("click", setBetAmount)
     console.log("reset table\n")
 }
