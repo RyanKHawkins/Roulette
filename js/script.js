@@ -1,4 +1,4 @@
-import { wheel, column1, column2, column3, green, first12, second12, third12, red, black, even, odd, low, high } from "./table.js"
+import { wheel, column1, column2, column3, green, first12, second12, third12, red, black, even, odd, low, high, numbers } from "./table.js"
 
 // Variables from DOM
 const wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
@@ -110,17 +110,20 @@ function spinWheel() {
     bankBalance -= betAmount;
     bankBalance_span.innerText = bankBalance
     console.log("Spinning wheel...")
-    messageDisplay_p.innerHTML = `<p>Spinning...</p>`
+    messageDisplay_p.innerText = "Spinning wheel"
     wheelResult = wheel[getWheelResult()]
     console.log("wheelResult:", wheelResult)
-    // Display Results
-    setTimeout(
-        displayWheelResult,
+
+    setTimeout(() => {
+        displayWheelResult;
+        bankBalance_span.innerText = bankBalance                
+    }
+   ,
         WAITTIME
     );
     setTimeout(resetTable, WAITTIME)
     checkForWins(wheelResult);
-    bankBalance_span.innerText = bankBalance
+
 }
 
 function getWheelResult() {
@@ -169,17 +172,23 @@ function displayPreviousResults() {
 function checkForWins(result) {
     console.log(`Bet selection: ${betPlacement}`)
     // Check for inside bets won
-    if (result == betPlacement) {
-        bankBalance += betAmount * 2;
+    if (betPlacement == result && numbers.includes(betPlacement)) {
+        bankBalance += betAmount * 35;
     }
     // Check for outside bets won
     if (["red", "black"].includes(betPlacement)) {
         if (betPlacement == "red" && red.includes(result)) {
             bankBalance += betAmount * 2
         }
-    if (betPlacement == "black" && black.includes(result)) {
-        bankBalance += betAmount * 2
+        if (betPlacement == "black" && black.includes(result)) {
+            bankBalance += betAmount * 2
+        }
     }
+    if (["even", "odd"].includes(betPlacement)) {
+        if (betPlacement == "even" && result % 2 == 0 || betPlacement == "odd" && result % 2 != 0) {
+            bankBalance += betAmount * 2            
+        }
+
     }
     console.log("check for wins")
     console.log("new balance: ", bankBalance);
@@ -215,7 +224,7 @@ function payOutWins() {
 function resetTable() {
 
     betDisplay_p.innerText = "Place your bet."
-
+    // messageDisplay_p.innerText = "Play again.";
 
     bankBalance > BETLIMIT ? betSelector.max = BETLIMIT : betSelector.max = bankBalance;
     bettingAllowed = true; // Reenable betting
