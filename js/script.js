@@ -3,15 +3,15 @@ import { wheel, column1, column2, column3, green, first12, second12, third12, re
 // Variables from DOM
 const wheelResult_span = document.querySelector("#wheelResult");// TODO:  Add animation
 
-const resultsDisplay_span = document.querySelector("#resultsDisplay")
+const resultsDisplay_span = document.querySelector("#resultsDisplay");
 const prevResults_span = document.querySelector("#resultsList");
 
-const betPlacements = Array.from(document.getElementsByClassName("selection"))
+const betPlacements = Array.from(document.getElementsByClassName("selection"));
 
 const messageDisplay_p = document.querySelector("#messageDisplay");
-const betDisplay_p = document.querySelector("#betDisplay")
+const betDisplay_p = document.querySelector("#betDisplay");
 const bankBalance_span = document.querySelector("#bankBalance");
-const betSelector = document.querySelector("#betAmount");
+const betSelector = document.querySelector("#betSelector");
 
 const betBtn = document.querySelector("#betBtn");
 const spinBtn = document.querySelector("#spinBtn");
@@ -95,7 +95,7 @@ function resetBets() {
 
 // Spin roulette wheel
 function spinWheel() {
-    if (betAmount.value == 0 || !betPlacement) {
+    if (betAmount == 0 || !betPlacement) {
         return
     }
     if (!isValidBet()) {
@@ -116,7 +116,7 @@ function spinWheel() {
 
     setTimeout(() => {
         displayWheelResult();
-        bankBalance_span.innerText = bankBalance,
+        bankBalance_span.innerText = bankBalance;
         resetTable()
     }, WAITTIME);
     checkForWins(wheelResult);
