@@ -111,7 +111,7 @@ function spinWheel() {
     bankBalance_span.innerText = bankBalance
     console.log("Spinning wheel...")
     messageDisplay_p.innerText = "Spinning wheel"
-    wheelResult = wheel[getWheelResult()]
+    wheelResult = wheel[getWheelIndex()]
     console.log("wheelResult:", wheelResult)
 
     setTimeout(() => {
@@ -122,7 +122,7 @@ function spinWheel() {
     checkForWins(wheelResult);
 }
 
-function getWheelResult() {
+function getWheelIndex() {
     return Math.floor(Math.random() * wheel.length)
 }
 
@@ -210,19 +210,6 @@ function checkForWins(result) {
     console.log("check for wins")
     console.log("new balance: ", bankBalance);
 }
-
-/**
- * If bet selection matches the wheel result,
- * award payout.
- * 
- * If bet is outside 1-to-1 payout (red, black, odd, even, low, high),
- * add betAmount * 2 to bankBalance
- * 
- * if bet is outside 1-to-2 payout (1st12, 2nd12, 3rd12, column1, )
- * 
- * 
- * 
- */
 
 function manageBetting() {
 
