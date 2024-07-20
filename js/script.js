@@ -116,6 +116,8 @@ function spinWheel() {
 
     setTimeout(() => {
         displayWheelResult();
+        bankBalance = bankBalance <= 0 ? 50 : bankBalance;
+        bankBalance > BETLIMIT ? betSelector.max = BETLIMIT : betSelector.max = bankBalance;
         bankBalance_span.innerText = bankBalance;
         resetTable()
     }, WAITTIME);
@@ -230,11 +232,12 @@ function resetTable() {
     betDisplay_p.innerText = "Place your bet."
     // messageDisplay_p.innerText = "Play again.";
 
-    bankBalance > BETLIMIT ? betSelector.max = BETLIMIT : betSelector.max = bankBalance;
     bettingAllowed = true; // Reenable betting
     resetBets()
     spinBtn.addEventListener("click", spinWheel);
     spinBtn.innerText = "Spin Wheel"
     // betBtn.addEventListener("click", setBetAmount)
     console.log("reset table\n")
+
+
 }
