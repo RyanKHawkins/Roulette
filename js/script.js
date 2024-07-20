@@ -209,6 +209,14 @@ function checkForWins(result) {
             bankBalance += betAmount * 3;
         }
     }
+    if (["low", "high"].includes(betPlacement)) {
+        if (betPlacement == "low" && result <= 18) {
+            bankBalance += betAmount * 2;
+        }
+        if (betPlacement == "high" && result >= 19) {
+            bankBalance += betAmount * 2;
+        }
+    }
     console.log("check for wins")
     console.log("new balance: ", bankBalance);
 }
