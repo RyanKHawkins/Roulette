@@ -184,7 +184,28 @@ function checkForWins(result) {
         if (betPlacement == "even" && result % 2 == 0 || betPlacement == "odd" && result % 2 != 0) {
             bankBalance += betAmount * 2            
         }
-
+    }
+    if (["first12", "second12", "third12"].includes(betPlacement)) {
+        if (betPlacement == "first12" && first12.includes(result)) {
+            bankBalance += betAmount * 3;
+        }
+        else if (betPlacement == "second12" && second12.includes(result)) {
+            bankBalance += betAmount * 3;
+        }
+        else if (betPlacement == "third12" && third12.includes(result)) {
+            bankBalance += betAmount * 3;
+        }
+    }
+    if (["column1", "column2", "column3"].includes(betPlacement)) {
+        if (betPlacement == "column1" && column1.includes(result)) {
+            bankBalance += betAmount * 3;
+        }
+        else if (betPlacement == "column2" && column2.includes(result)) {
+            bankBalance += betAmount * 3;
+        }
+        else if (betPlacement == "column3" && column3.includes(result)) {
+            bankBalance += betAmount * 3;
+        }
     }
     console.log("check for wins")
     console.log("new balance: ", bankBalance);
