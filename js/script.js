@@ -17,21 +17,8 @@ const betBtn = document.querySelector("#betBtn");
 const spinBtn = document.querySelector("#spinBtn");
 const resetBtn = document.querySelector("#resetBtn");
 
-// Event Listeners
-spinBtn.addEventListener("click", spinWheel);
-// betBtn.addEventListener("click", setBetAmount);
 
-betPlacements.forEach((selection) => selection.addEventListener("click", selectBetPlacement))
-//betSelections.onclick = (e) => betSelection = e.target.id
-
-resetBtn.addEventListener("click", resetBets)
-document.onclick = (e) => console.log(`clicked:  ${e.target.id}`)
-betSelector.addEventListener("change", () => {
-    betAmount = Number(betSelector.value);
-    console.log("bet amount: ", betAmount)
-    console.log("type: ", typeof(betAmount))
-})
-// Initiating Variables
+// Initiating Variables and constants
 let bankBalance = 1000;
 let wheelResult;
 let bettingAllowed = true;
@@ -40,7 +27,18 @@ let betPlacement
 let resultsList = []
 const WAITTIME = 5000
 const BETLIMIT = 2000
-let currentBet = 0;
+
+
+// Event Listeners
+spinBtn.addEventListener("click", spinWheel);
+betPlacements.forEach((selection) => selection.addEventListener("click", selectBetPlacement))
+resetBtn.addEventListener("click", resetBets)
+betSelector.addEventListener("change", () => {
+    betAmount = Number(betSelector.value);
+    console.log("bet amount: ", betAmount)
+    console.log("type: ", typeof(betAmount))
+})
+// document.onclick = (e) => console.log(`clicked:  ${e.target.id}`)
 
 // Select betAmount
 function selectBetPlacement(e) {
@@ -73,7 +71,7 @@ function resetBets() {
     }
 }
 
-// Spin roulette wheel
+
 function spinWheel() {
     if (betAmount == 0 || !betPlacement) {
         return
@@ -91,7 +89,7 @@ function spinWheel() {
     bankBalance_span.innerText = bankBalance
     console.log("Spinning wheel...")
     messageDisplay_p.innerText = "Spinning wheel"
-    wheelResult = wheel[getWheelIndex()]
+    wheelResult = wheel[getRandomWheelIndex()]
     console.log("wheelResult:", wheelResult)
 
     setTimeout(() => {
@@ -104,7 +102,7 @@ function spinWheel() {
     checkForWins(wheelResult);
 }
 
-function getWheelIndex() {
+function getRandomWheelIndex() {
     return Math.floor(Math.random() * wheel.length)
 }
 
