@@ -25,7 +25,7 @@ betPlacements.forEach((selection) => selection.addEventListener("click", selectB
 //betSelections.onclick = (e) => betSelection = e.target.id
 
 resetBtn.addEventListener("click", resetBets)
-document.onclick = (e) => console.log(e.target.id)
+document.onclick = (e) => console.log(`clicked:  ${e.target.id}`)
 betSelector.addEventListener("change", () => {
     betAmount = Number(betSelector.value);
     console.log("bet amount: ", betAmount)
@@ -53,11 +53,11 @@ function selectBetPlacement(e) {
 }
 
 function isValidBet() {
-    if (betAmount.value > bankBalance) {
-        console.log(betAmount.value, bankBalance);
+    if (betAmount > bankBalance) {
+        console.log(betAmount, bankBalance);
         return false
     }
-    if (betAmount.value > BETLIMIT) {
+    if (betAmount > BETLIMIT) {
         console.log(betAmount, BETLIMIT);
         return false
     }
